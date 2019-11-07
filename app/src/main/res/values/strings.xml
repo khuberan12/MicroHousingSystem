@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Micro Housing System</string>
+    <string name="Login">btn_login</string>
 </resources>
