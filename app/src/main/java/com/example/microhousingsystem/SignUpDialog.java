@@ -14,16 +14,16 @@ public class SignUpDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Please select your position: ")
+        builder.setTitle("Sign Up")
                 .setMessage("Are you a Housing Officer or an Applicant?")
-            .setPositiveButton("Applicant", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int id) {
-                    Intent x = new Intent(SignUpDialog.this.getActivity(), SignUpAP.class);
-                    startActivity(x);
+                .setPositiveButton("Applicant", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        Intent x = new Intent(SignUpDialog.this.getActivity(), SignUpAP.class);
+                        startActivity(x);
 
-                }
-            })
+                    }
+                })
                 .setNegativeButton("Housing Officer", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int id) {
@@ -31,7 +31,6 @@ public class SignUpDialog extends AppCompatDialogFragment {
                         startActivity(y);
                     }
                 });
-
 
 
         return builder.create();

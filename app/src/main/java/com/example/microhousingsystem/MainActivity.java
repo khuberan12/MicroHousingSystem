@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-        public void openDialog(){
-            SignUpDialog signUpDialog = new SignUpDialog();
-            signUpDialog.show(getSupportFragmentManager(),"Sign Up");
-        }
+    public void openDialog() {
+        SignUpDialog signUpDialog = new SignUpDialog();
+        signUpDialog.show(getSupportFragmentManager(), "Sign Up");
     }
+}

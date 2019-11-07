@@ -20,10 +20,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPasswordAP" />
 
     <EditText
-        android:id="@+id/txtUsername"
+        android:id="@+id/txtUsernameAP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/txtPassword"
+        android:id="@+id/txtPasswordAP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -53,7 +53,7 @@
         android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameAP" />
 
     <TextView
         android:id="@+id/textView"
@@ -121,7 +121,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
-        android:text="Dont have an account ?"
+        android:text="Don't have an account ?"
         android:textColor="#F7F7FA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,7 +138,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="32dp"
         android:background="#34000000"
-        android:text="Sign Up"
+        android:text="Sign Up!"
         android:textColor="#33FF99"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

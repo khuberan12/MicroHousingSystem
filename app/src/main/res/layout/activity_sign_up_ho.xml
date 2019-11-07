@@ -8,7 +8,7 @@
     tools:context=".SignUpHO">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnSignupHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="151dp"
@@ -34,12 +34,12 @@
         android:text="Sign Up"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/btnBackHO"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText16" />
+        app:layout_constraintTop_toBottomOf="@+id/txtStaffID" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnBackHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="151dp"
@@ -51,11 +51,11 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/editText16" />
+        app:layout_constraintStart_toEndOf="@+id/btnSignupHO"
+        app:layout_constraintTop_toBottomOf="@+id/txtStaffID" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/txtUsernameHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -68,10 +68,10 @@
         android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/txtpasswordHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -84,10 +84,10 @@
         android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText13" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameHO" />
 
     <EditText
-        android:id="@+id/editText15"
+        android:id="@+id/txtFullnameHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -100,10 +100,10 @@
         android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText14" />
+        app:layout_constraintTop_toBottomOf="@+id/txtpasswordHO" />
 
     <EditText
-        android:id="@+id/editText16"
+        android:id="@+id/txtStaffID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -116,5 +116,5 @@
         android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText15" />
+        app:layout_constraintTop_toBottomOf="@+id/txtFullnameHO" />
 </androidx.constraintlayout.widget.ConstraintLayout>
