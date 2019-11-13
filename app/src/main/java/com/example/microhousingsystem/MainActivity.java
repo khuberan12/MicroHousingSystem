@@ -6,9 +6,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnSignup;
+    EditText usernameEditText;
+    EditText passwordEditText;
+    SqliteHelper sqliteHelper;
+    Button btnSignup;
+
+    public void Login (View view){
+
+        String username = usernameEditText.getText().toString();
+        String Password = passwordEditText.getText().toString();
+
+        //Authenticate user
+        User currentUser = sqliteHelper.Authenticate(new User(null, username, Password));
+
+        //Check Authentication is successful or not
+        if (currentUser != null) {
+            Toast.makeText(this, "Loged In", Toast.LENGTH_SHORT).show();
+            //User Logged in Successfully Launch You home screen activity
+
+        } else {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+            //User Logged in Failed
+        }
+
+
+    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
