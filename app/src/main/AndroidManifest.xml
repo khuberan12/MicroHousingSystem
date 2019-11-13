@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignUpHO"></activity>
+        <activity android:name=".AllocateHousing"></activity>
+        <activity android:name=".viewAppAP" />
+        <activity android:name=".ViewAppHO" />
+        <activity android:name=".SubmitApplication" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name=".ViewActivity" />
+        <activity android:name=".SetResidence" />
+        <activity android:name=".SignUpHO" />
         <activity android:name=".SignUpAP" />
         <activity android:name=".MainActivity">
             <intent-filter>
