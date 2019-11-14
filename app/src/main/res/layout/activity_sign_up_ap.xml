@@ -8,37 +8,38 @@
     android:background="@drawable/mirage"
     tools:context=".SignUpAP">
 
-    <EditText
-        android:id="@+id/usernameEditText"
+    <Button
+        android:id="@+id/btnSignupAP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="74dp"
         android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:textColor="#33FF99"
-        android:textColorHint="#DFD9D9"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#33FF99"
+        android:text="Sign up"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnBackAP"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSalary"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/passwordEditText"
+    <Button
+        android:id="@+id/btnBackAP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="#33FF99"
-        android:textColorHint="#DFD9D9"
+        android:background="#F44336"
+        android:text="Back"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
+        app:layout_constraintStart_toEndOf="@+id/btnSignupAP"
+        app:layout_constraintTop_toBottomOf="@+id/txtSalary" />
 
     <EditText
         android:id="@+id/txtFullnameAP"
@@ -56,39 +57,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/usernameEditText"
         android:layout_width="wrap_content"
-        android:layout_height="42dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Applicant"
-        android:textAlignment="center"
-        android:textColor="#F7F7FA"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textColor="#33FF99"
+        android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnSignupAP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="32dp"
-        android:background="#33FF99"
-        android:text="Sign up"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnBackAP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSalary"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -122,20 +105,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
-    <Button
-        android:id="@+id/btnBackAP"
+    <EditText
+        android:id="@+id/passwordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:background="#F44336"
-        android:text="Back"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#33FF99"
+        android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSignupAP"
-        app:layout_constraintTop_toBottomOf="@+id/txtSalary" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Applicant"
+        android:textAlignment="center"
+        android:textColor="#F7F7FA"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
