@@ -24,10 +24,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         //authenticate user
-        User currentApplicant = sqliteHelper.Authenticate(new User(null,username,password,
+        Applicant currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password,null,null,null));
+
+        //Check Authentication is successful or not
+        if (currentApplicant != null) {
+            Toast.makeText(this, "Loged In", Toast.LENGTH_SHORT).show();
+            //User Logged in Successfully Launch You home screen activity
 
 
-
+        } else {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+            //User Logged in Failed
+        }
 
     }
 
