@@ -11,41 +11,38 @@
         android:id="@+id/btnSignupHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="151dp"
-        android:layout_marginEnd="48dp"
         android:layout_marginStart="74dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="151dp"
         android:background="#33FF99"
+        android:onClick="signUpHO"
         android:text="Sign Up"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnBackHO"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtStaffID" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnBackHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="151dp"
-        android:layout_marginEnd="74dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="151dp"
         android:background="#F44336"
         android:text="Back"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSignupHO"
-        app:layout_constraintTop_toBottomOf="@+id/txtStaffID" />
+        app:layout_constraintStart_toEndOf="@+id/btnSignupHO" />
 
     <EditText
         android:id="@+id/txtUsernameHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -59,9 +56,9 @@
         android:id="@+id/txtpasswordHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -75,9 +72,8 @@
         android:id="@+id/txtFullnameHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Fullname"
         android:inputType="textPersonName"
@@ -85,23 +81,7 @@
         android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtpasswordHO" />
-
-    <EditText
-        android:id="@+id/txtStaffID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Staff ID"
-        android:inputType="number"
-        android:textColor="#33FF99"
-        android:textColorHint="#DFD9D9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFullnameHO" />
+        tools:layout_editor_absoluteY="310dp" />
 
     <TextView
         android:id="@+id/textView"

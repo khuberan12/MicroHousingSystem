@@ -31,7 +31,7 @@ public class SignUpAP extends AppCompatActivity {
         Applicant newAp = new Applicant(null,username,password,fullname,email,monthlyIncome);
         sqliteHelper.addApplicant(newAp);
 
-        Toast.makeText(this, "One Applicant added!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "You have been registered as Applicant", Toast.LENGTH_SHORT).show();
         finish();
     }
 

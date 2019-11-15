@@ -11,11 +11,16 @@ public class Applicant extends User {
     public Applicant() {
     }
 
+    public Applicant(String id,String username, String password){
+        super(id,username,password);
+    }
+
     public Applicant(String email, String monthlyIncome) {
         this.email = email;
         this.monthlyIncome = monthlyIncome;
         this.userType ="applicant";
     }
+
 
 
     public Applicant(String id,String username, String password, String fullname, String email, String monthlyIncome) {
@@ -24,9 +29,6 @@ public class Applicant extends User {
         this.monthlyIncome = monthlyIncome;
         this.userType ="applicant";
     }
-
-
-
 
 
     public String getEmail() {
