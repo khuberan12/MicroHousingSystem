@@ -6,9 +6,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class SignUpHO extends AppCompatActivity {
     private Button btnBackHO;
+
+    EditText usernameET;
+    EditText passwordET;
+    EditText fullnameET;
+    SqliteHelper sqliteHelper;
+
+    public void signUpHO(View view){
+        String username = usernameET.getText().toString().trim();
+        String password = passwordET.getText().toString().trim();
+        String fullname = fullnameET.getText().toString().trim();
+
+
+
+        HousingOfficer newHO =  new HousingOfficer(null,username,password,fullname);
+        sqliteHelper.addHO(newHO);
+
+        Toast.makeText(this, "You have been registered as Housing Officer", Toast.LENGTH_SHORT).show();
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +43,16 @@ public class SignUpHO extends AppCompatActivity {
                 openMain();
             }
         });
+
+        usernameET = findViewById(R.id.txtUsernameHO);
+        passwordET = findViewById(R.id.txtpasswordHO);
+        fullnameET =findViewById(R.id.txtFullnameHO);
+
+        sqliteHelper = new SqliteHelper(this);
+
+
+
+
     }
 
     public void openMain() {
