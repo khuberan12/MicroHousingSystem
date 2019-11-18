@@ -1,5 +1,5 @@
 package com.example.microhousingsystem;
-import android.support.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,17 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     EditText usernameEditText;
     EditText passwordEditText;
-    FirebaseAuth mFirebaseAuth;
+
 
     Button btnSignup;
 
@@ -43,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
+
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
 
@@ -64,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (email.isEmpty() && password.isEmpty()){
                     Toast.makeText(MainActivity.this,"Field are Empty!", Toast.LENGTH_SHORT).show();
-                }
-                else if (!(email.isEmpty() && password.isEmpty())){
-                    mFirebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(MainActivity.this, new)
                 }
             }
         });
