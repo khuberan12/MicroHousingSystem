@@ -23,12 +23,14 @@ public class SignUpHO extends AppCompatActivity {
         String fullname = fullnameET.getText().toString().trim();
 
 
-
+/*
         HousingOfficer newHO =  new HousingOfficer(null,username,password,fullname);
         sqliteHelper.addHO(newHO);
 
         Toast.makeText(this, "You have been registered as Housing Officer", Toast.LENGTH_SHORT).show();
         finish();
+
+ */
     }
 
     @Override

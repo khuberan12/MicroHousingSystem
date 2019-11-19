@@ -22,38 +22,19 @@ public class MainActivity extends AppCompatActivity {
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
-        User user = new User(username,password);
+        //authenticate user
+        Applicant currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password));
 
-        if(user instanceof Applicant){
-            //authenticate user
-            Applicant currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password));
-
-            //Check Authentication is successful or not
-            if (currentApplicant != null) {
-                Toast.makeText(this, "Loged In", Toast.LENGTH_SHORT).show();
-                //User Logged in Successfully Launch You home screen activity
+        //Check Authentication is successful or not
+        if (currentApplicant != null) {
+            Toast.makeText(this, "Loged In", Toast.LENGTH_SHORT).show();
+            //User Logged in Successfully Launch You home screen activity
 
 
-            } else {
-                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
-                //User Logged in Failed
-            }
-        }else if(user instanceof HousingOfficer){
-            //authenticate user
-            HousingOfficer currentApplicant = sqliteHelper.AuthenticateHO(new HousingOfficer(null,username,password));
-
-            //Check Authentication is successful or not
-            if (currentApplicant != null) {
-                Toast.makeText(this, "Loged In", Toast.LENGTH_SHORT).show();
-                //User Logged in Successfully Launch You home screen activity
-
-
-            } else {
-                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
-                //User Logged in Failed
-            }
+        } else {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+            //User Logged in Failed
         }
-
 
 
     }
