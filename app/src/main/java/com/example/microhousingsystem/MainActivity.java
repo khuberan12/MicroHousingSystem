@@ -1,5 +1,4 @@
 package com.example.microhousingsystem;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,14 +11,31 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     EditText usernameEditText;
     EditText passwordEditText;
+    SqliteHelper sqliteHelper;
+    Button btnSignup ;
+    Button login;
 
-
-    Button btnSignup;
 
     public void Login (View  view){
 
+        //get value from edittext field
         String username = usernameEditText.getText().toString();
-        String Password = passwordEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+
+        //authenticate user
+        Applicant currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password));
+
+        //Check Authentication is successful or not
+        if (currentApplicant != null) {
+            Toast.makeText(this, "Loged In", Toast.LENGTH_SHORT).show();
+            //User Logged in Successfully Launch You home screen activity
+
+
+        } else {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+            //User Logged in Failed
+        }
+
 
     }
 
@@ -37,30 +53,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        usernameEditText =findViewById(R.id.username);
+        passwordEditText =findViewById(R.id.password);
+        login =findViewById(R.id.btnLogin);
 
-        usernameEditText = findViewById(R.id.username);
-        passwordEditText = findViewById(R.id.password);
-
-        passwordEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String email = usernameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-
-                if (email.isEmpty()){
-                    usernameEditText.setError("Please enter email ID");
-                    usernameEditText.requestFocus();
-                }
-                else if (password.isEmpty()){
-                    passwordEditText.setError("Please enter password");
-                    passwordEditText.requestFocus();
-                }
-                else if (email.isEmpty() && password.isEmpty()){
-                    Toast.makeText(MainActivity.this,"Field are Empty!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        sqliteHelper= new SqliteHelper(this);
 
     }
 

@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AllocateHousing"></activity>
+        <activity android:name=".ListSetUp"></activity>
+        <activity
+            android:name=".SetUpResidence"
+            android:label="@string/title_activity_set_up_residence"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view_resident" />
+        <activity android:name=".AllocateHousing" />
         <activity android:name=".viewAppAP" />
         <activity android:name=".ViewAppHO" />
         <activity android:name=".SubmitApplication" />

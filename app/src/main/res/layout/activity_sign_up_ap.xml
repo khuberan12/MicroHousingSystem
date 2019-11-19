@@ -127,16 +127,17 @@
         android:id="@+id/btnBackAP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_marginEnd="74dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="60dp"
         android:background="#F44336"
         android:text="Back"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnSignupAP"
-        app:layout_constraintTop_toBottomOf="@+id/txtSalary" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSalary"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
