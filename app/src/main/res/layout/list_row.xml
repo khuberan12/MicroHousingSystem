@@ -72,7 +72,8 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@android:drawable/ic_menu_edit" />
+                    android:background="@android:drawable/ic_menu_edit"
+                    android:onClick="@string/edit" />
 
                 <Button
                     android:id="@+id/deleteButton"

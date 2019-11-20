@@ -17,6 +17,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:onClick="@string/sure_text"
                 android:text="@string/enter_item"
                 android:textSize="18sp"
                 android:textStyle="italic" />
@@ -53,15 +54,16 @@
 
             <Button
                 android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/itemSize"
                 android:layout_marginEnd="5dp"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:text="@string/save_button"
-                android:layout_width="match_parent"
-                android:textColor="@android:color/white"
                 android:background="@color/colorAccent"
-                android:layout_height="wrap_content" />
+                android:onClick="@string/save_button"
+                android:text="@string/save_button"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

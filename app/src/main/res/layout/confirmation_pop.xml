@@ -30,6 +30,7 @@
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="5dp"
                 android:background="@color/colorAccent"
+                android:onClick="@string/no_text"
                 android:text="@string/no_text"
                 android:textColor="@android:color/white" />
 
@@ -42,6 +43,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="23dp"
                 android:background="@color/colorAccent"
+                android:onClick="@string/yes_text"
                 android:text="@string/yes_text"
                 android:textColor="@android:color/white" />
 

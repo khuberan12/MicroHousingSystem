@@ -1,5 +1,6 @@
 package com.example.microhousingsystem;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.microhousingsystem.data.DatabaseHandler;
+
 public class SignUpHO extends AppCompatActivity {
     private Button btnBackHO;
+    private Button btnSignupHO;
 
     EditText usernameET;
     EditText passwordET;
@@ -45,6 +49,13 @@ public class SignUpHO extends AppCompatActivity {
                 openMain();
             }
         });
+        btnSignupHO = (Button) findViewById(R.id.btnSignupHO);
+        btnSignupHO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openList();
+            }
+        });
 
         usernameET = findViewById(R.id.txtUsernameHO);
         passwordET = findViewById(R.id.txtpasswordHO);
@@ -60,6 +71,11 @@ public class SignUpHO extends AppCompatActivity {
     public void openMain() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void openList() {
+        Intent j = new Intent(this, ListSetUp.class);
+        startActivity(j);
     }
 }
 
