@@ -5,6 +5,7 @@ public class User {
     public String username;
     public String password;
     public String fullname;
+    public String userType;
 
 
     public User() {
@@ -28,6 +29,7 @@ public class User {
         this.password = password;
 
     }
+
 
     public String getUsername() {
         return username;

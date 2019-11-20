@@ -28,11 +28,20 @@ public class SignUpAP extends AppCompatActivity {
         String email = emailET.getText().toString().trim();
         String monthlyIncome = monthlyInconmeET.toString().trim();
 
-        Applicant newAp = new Applicant(null,username,password,fullname,email,monthlyIncome);
-        sqliteHelper.addApplicant(newAp);
 
+        Applicant newAp = new Applicant(null,username,password,fullname,email,monthlyIncome);
+        newAp.setUsername(usernameET.getText().toString().trim());
+        newAp.setPassword(passwordET.getText().toString().trim());
+        newAp.setFullname(fullnameET.getText().toString().trim());
+        newAp.setEmail(emailET.getText().toString().trim());
+        newAp.setMonthlyIncome(monthlyInconmeET.getText().toString().trim());
+        newAp.getUserType();
+
+        sqliteHelper.addApplicant(newAp);
         Toast.makeText(this, "You have been registered as Applicant", Toast.LENGTH_SHORT).show();
         finish();
+
+
     }
 
 
@@ -54,6 +63,7 @@ public class SignUpAP extends AppCompatActivity {
         fullnameET =findViewById(R.id.txtFullnameAP);
         emailET = findViewById(R.id.txtEmail);
         monthlyInconmeET =findViewById(R.id.txtSalary);
+
 
         sqliteHelper = new SqliteHelper(this);
     }
