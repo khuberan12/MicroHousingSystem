@@ -24,11 +24,8 @@ public class MainActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
 
 
-
         //authenticate user
         User currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password));
-
-
 
 
         //Check Authentication is successful or not
@@ -41,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
             //User Logged in Failed
         }
-
-
+        
     }
 
     @Override

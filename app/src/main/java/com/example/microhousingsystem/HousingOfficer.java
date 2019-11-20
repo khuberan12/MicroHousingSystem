@@ -17,7 +17,7 @@ public class HousingOfficer extends User{
 
     public HousingOfficer(String id,String username, String password, String fullname) {
         super(id,username, password, fullname);
-        this.userType ="houseOfficer";
+        this.userType ="housingOfficer";
     }
 
     public String getUserType() {
@@ -25,7 +25,7 @@ public class HousingOfficer extends User{
     }
 
     public void setUserType() {
-        this.userType = "HousingOfficer";
+        this.userType = "housingOfficer";
     }
 
 
