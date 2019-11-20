@@ -60,10 +60,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Applicant"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="Sign up form"
         android:textAlignment="center"
         android:textColor="#F7F7FA"
         android:textSize="24sp"
@@ -78,7 +78,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="60dp"
         android:background="#33FF99"
@@ -87,9 +86,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnBackAP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSalary"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -111,24 +108,23 @@
         android:id="@+id/txtSalary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="Monthly Income (Digits)"
-        android:inputType="number"
+        android:hint="Monthly Income"
+        android:inputType="textEmailAddress"
         android:textColor="#33FF99"
         android:textColorHint="#DFD9D9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtFullnameAP" />
 
     <Button
         android:id="@+id/btnBackAP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="74dp"
         android:layout_marginBottom="60dp"
         android:background="#F44336"
@@ -136,8 +132,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSignupAP"
-        app:layout_constraintTop_toBottomOf="@+id/txtSalary"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/btnSignupAP" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

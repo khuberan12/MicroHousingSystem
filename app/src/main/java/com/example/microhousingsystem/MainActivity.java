@@ -18,12 +18,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void Login (View  view){
 
+
         //get value from edittext field
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
+
+
         //authenticate user
-        Applicant currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password));
+        User currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password));
+
+
+
 
         //Check Authentication is successful or not
         if (currentApplicant != null) {

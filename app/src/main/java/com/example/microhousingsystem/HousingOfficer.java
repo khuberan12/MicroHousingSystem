@@ -2,10 +2,9 @@ package com.example.microhousingsystem;
 
 public class HousingOfficer extends User{
 
-    private String staffID;
     private String userType;
 
-    static int number =1;
+
 
 
     public HousingOfficer() {
@@ -18,8 +17,7 @@ public class HousingOfficer extends User{
 
     public HousingOfficer(String id,String username, String password, String fullname) {
         super(id,username, password, fullname);
-        setStaffID();
-        setUserType();
+        this.userType ="houseOfficer";
     }
 
     public String getUserType() {
@@ -30,11 +28,5 @@ public class HousingOfficer extends User{
         this.userType = "HousingOfficer";
     }
 
-    public String getStaffID() {
-        return staffID;
-    }
 
-    public void setStaffID() {
-        this.staffID = staffID + ++number;
-    }
 }
