@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class SignUpAP extends AppCompatActivity {
 
     private Button btnBackAP;
+    private Button btnSignupAP;
 
     EditText usernameET;
     EditText passwordET;
@@ -58,6 +59,7 @@ public class SignUpAP extends AppCompatActivity {
             }
         });
 
+
         usernameET =findViewById(R.id.usernameEditText);
         passwordET =findViewById(R.id.passwordEditText);
         fullnameET =findViewById(R.id.txtFullnameAP);
@@ -72,5 +74,6 @@ public class SignUpAP extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+
 }
 

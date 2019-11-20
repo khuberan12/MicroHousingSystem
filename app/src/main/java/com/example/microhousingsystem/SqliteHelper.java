@@ -12,7 +12,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "microHousingSystem";//DATABASE NAME
-    public static final int DATABASE_VERSION = 15 ;//DATABASE VERSION
+    public static final int DATABASE_VERSION = 16 ;//DATABASE VERSION
 
 
     public static final String TABLE_APPLICANT = "applicant"; //TABLE NAME

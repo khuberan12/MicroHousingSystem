@@ -26,4 +26,7 @@
     <string name="edit_time">Edit Item</string>
     <string name="update_text">Update</string>
     <string name="edit" />
+    <string name="applicant" />
+    <string name="ho" />
+    <string name="app" />
 </resources>
