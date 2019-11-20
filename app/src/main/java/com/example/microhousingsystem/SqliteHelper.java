@@ -12,7 +12,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "microHousingSystem";//DATABASE NAME
-    public static final int DATABASE_VERSION =11 ;//DATABASE VERSION
+    public static final int DATABASE_VERSION = 15 ;//DATABASE VERSION
 
 
     public static final String TABLE_APPLICANT = "applicant"; //TABLE NAME
@@ -27,16 +27,17 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public static final String KEY_USER_TYPE = "userType";
 
 
+
     public static final String SQL_TABLE_APPLICANT = " CREATE TABLE " + TABLE_APPLICANT //SQL FOR CREATING APPLICANT TABLE
 
             + " ( "
-            + KEY_ID + " INTEGER PRIMARY KEY, "
-            + KEY_FULL_NAME + " TEXT, "
-            + KEY_USER_NAME + " TEXT, "
+            + KEY_ID + " INTEGER PRIMARY KEY,"
+            + KEY_FULL_NAME + " TEXT,"
+            + KEY_USER_NAME + " TEXT,"
             + KEY_PASSWORD + " TEXT,"
             + KEY_EMAIL + " TEXT,"
             + KEY_MONTHLYINCOME + " TEXT,"
-            + KEY_USER_TYPE + "TEXT"
+            + KEY_USER_TYPE + " TEXT "
             + " ) ";
 
     public SqliteHelper(Context context) {
@@ -77,6 +78,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         values.put(KEY_USER_TYPE, ap.getUserType());//pls work laa babi
 
 
+
         long todo_id = db.insert(TABLE_APPLICANT, null, values); // insert row
     }
 
@@ -101,6 +103,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
         return null;
     }
 
+
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static final String TABLE_HO = "housingOfficer"; //TABLE NAME
 
@@ -109,14 +113,15 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public static final String KEY_USER_NAME_HO = "usernameHO";  //COLUMN user name
     public static final String KEY_PASSWORD_HO = "passwordHO";//COLUMN password
     public static final String KEY_FULLNAME_HO = "fullnameHO";//COLUMN fullname
+    public static final String KEY_USER_TYPEHO = "userTypeHO";//COLUMN fullname
     public static final String SQL_TABLE_HO = " CREATE TABLE " + TABLE_HO //SQL for creating users table
 
             + " ( "
             + KEY_ID_HO + " INTEGER PRIMARY KEY, "
             + KEY_USER_NAME_HO + " TEXT, "
             + KEY_PASSWORD_HO + " TEXT,"
-            + KEY_FULLNAME_HO + "TEXT"
-
+            + KEY_FULLNAME_HO + " TEXT,"
+            + KEY_USER_TYPEHO + " TEXT "
             + " ) ";
 
     //using this method we can add users to user table
