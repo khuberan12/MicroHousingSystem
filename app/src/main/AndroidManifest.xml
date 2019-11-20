@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginHO"></activity>
+        <activity android:name=".OptionHO"></activity>
+        <activity android:name=".OptionAP" />
+        <activity android:name=".LoginHO" />
         <activity android:name=".LoginAP" />
         <activity android:name=".ListSetUp" />
         <activity
