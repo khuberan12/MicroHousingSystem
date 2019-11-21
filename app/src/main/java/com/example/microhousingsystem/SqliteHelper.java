@@ -50,6 +50,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         //Create Table when oncreate gets called
         sqLiteDatabase.execSQL(SQL_TABLE_APPLICANT);
         sqLiteDatabase.execSQL(SQL_TABLE_HO);
+        sqLiteDatabase.execSQL(SQL_TABLE_RESIDENCE);
 
 
 
@@ -60,6 +61,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         //drop table to create new one if database version updated
         sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS " + TABLE_APPLICANT);
         sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS " + TABLE_HO);
+        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS " + TABLE_RESIDENCE);
 
         onCreate(sqLiteDatabase);
 
@@ -102,8 +104,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
         //if user password does not matches or there is no record with that email then return @false
         return null;
     }
-
-
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static final String TABLE_HO = "housingOfficer"; //TABLE NAME
@@ -159,6 +159,38 @@ public class SqliteHelper extends SQLiteOpenHelper {
         //if user password does not matches or there is no record with that email then return @false
         return null;
     }
+    //////////////////////////////////////////////////////////////////////////////////////////
+    public static final String TABLE_RESIDENCE = "residence"; //TABLE NAME
+
+    //TABLE USERS COLUMNS
+    public static final String KEY_ID_R = "idR"; //ID COLUMN @primaryKey
+    public static final String KEY_RESIDENCE_ADDRESS = "address";  //COLUMN user name
+    public static final String KEY_NUM_OF_UNITS = "numberOfUnit";//COLUMN password
+    public static final String KEY_SIZE_PER_UNIT = "sizePerUnit";//COLUMN fullname
+    public static final String KEY_MONTHLY_RENTAL = "monthlyRental";//COLUMN fullname
+    public static final String SQL_TABLE_RESIDENCE = " CREATE TABLE " + TABLE_RESIDENCE //SQL for creating users table
+
+            + " ( "
+            + KEY_ID_R + " INTEGER PRIMARY KEY, "
+            + KEY_RESIDENCE_ADDRESS + " TEXT, "
+            + KEY_NUM_OF_UNITS + " TEXT,"
+            + KEY_SIZE_PER_UNIT + " TEXT,"
+            + KEY_MONTHLY_RENTAL + " TEXT "
+            + " ) ";
+
+    //using this method we can add users to user table
+    public void addResidence(HousingOfficer ho) {
+
+        SQLiteDatabase db = this.getWritableDatabase(); //get writable database
+        ContentValues values = new ContentValues(); //create content values to insert
+        values.put(KEY_USER_NAME_HO,ho.getUsername() ); //Put username in  @values
+        values.put(KEY_PASSWORD_HO, ho.getPassword()); //Put password in  @values
+        values.put(KEY_FULLNAME_HO, ho.getFullname()); //Put  in  @values
+
+
+        long todo_id = db.insert(TABLE_RESIDENCE, null, values); // insert row
+    }
+
 
 
 
