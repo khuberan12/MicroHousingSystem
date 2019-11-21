@@ -36,7 +36,7 @@ public class LoginAP extends AppCompatActivity {
         if (currentApplicant != null) {
             Toast.makeText(this, "Logged In", Toast.LENGTH_SHORT).show();
             //User Logged in Successfully Launch You home screen activity
-
+            startActivity(new Intent(LoginAP.this, OptionAP.class));
 
 
         } else {

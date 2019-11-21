@@ -3,6 +3,7 @@ package com.example.microhousingsystem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroupOverlay;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,8 +37,7 @@ public class LoginHO extends AppCompatActivity {
         if (currentApplicant != null) {
             Toast.makeText(this, "Logged In as House officer", Toast.LENGTH_SHORT).show();
             //User Logged in Successfully Launch You home screen activity
-
-
+            startActivity(new Intent(LoginHO.this, OptionHO.class));
 
         } else {
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
@@ -66,7 +66,6 @@ public class LoginHO extends AppCompatActivity {
         login =findViewById(R.id.btnLogin);
 
         sqliteHelper= new SqliteHelper(this);
-
     }
 
     public void openSignUpHO(){
