@@ -18,7 +18,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "microHousingSystem";//DATABASE NAME
-    public static final int DATABASE_VERSION = 16 ;//DATABASE VERSION
+    public static final int DATABASE_VERSION = 18 ;//DATABASE VERSION
 
 
     public static final String TABLE_APPLICANT = "applicant"; //TABLE NAME
@@ -243,12 +243,12 @@ public class SqliteHelper extends SQLiteOpenHelper {
             List<Residence> residenceList = new ArrayList<>();
 
             Cursor cursor = db.query(TABLE_RESIDENCE,
-                    new String[]{KEY_ID,
+                    new String[]{KEY_ID_R,
                             KEY_RESIDENCE_ADDRESS,
                             KEY_NUM_OF_UNITS,
                             KEY_SIZE_PER_UNIT},
                     null, null, null, null,
-                    KEY_RESIDENCE_ADDRESS + " ADDRESS");
+                    KEY_ID_R + " DESC");
 
             if (cursor.moveToFirst()) {
 
