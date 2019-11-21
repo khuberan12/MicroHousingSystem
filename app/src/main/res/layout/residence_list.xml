@@ -15,7 +15,7 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/item_name"
+                android:id="@+id/residence_ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
@@ -23,38 +23,38 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/item_quantity"
+                android:id="@+id/residence_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_name"
+                android:layout_below="@+id/residence_ID"
                 android:paddingTop="4dp"
                 android:text="@string/app_name"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:id="@+id/item_color"
+                android:id="@+id/residence_available"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_quantity"
+                android:layout_below="@+id/residence_address"
                 android:text="@string/app_name"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:id="@+id/item_size"
+                android:id="@+id/residence_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_color"
+                android:layout_below="@+id/residence_available"
                 android:text="@string/app_name"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:id="@+id/item_date"
+                android:id="@+id/residence_rental"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_size"
+                android:layout_below="@+id/residence_size"
                 android:text="@string/app_name"
                 android:textSize="18sp"
                 android:textStyle="italic" />
@@ -62,28 +62,10 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/item_date"
+                android:layout_alignBottom="@+id/residence_rental"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/editButton"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@android:drawable/ic_menu_edit"
-                    android:onClick="@string/edit_item" />
-
-                <Button
-                    android:id="@+id/deleteButton"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@android:drawable/ic_delete"
-                    android:onClick="delet" />
-
-            </TableRow>
+                android:orientation="horizontal"/>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

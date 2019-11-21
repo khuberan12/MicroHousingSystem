@@ -19,10 +19,10 @@
 
     <string name="add_item">Add Item</string>
     <string name="enter_item">Enter Item</string>
-    <string name="hint_item">Enter Item Name</string>
-    <string name="hint_qty">Quantity</string>
-    <string name="hint_color">Color</string>
-    <string name="hint_size">Size</string>
+    <string name="hint_address">Enter Item Name</string>
+    <string name="hint_available">Quantity</string>
+    <string name="hint_size">Color</string>
+    <string name="hint_rental">Size</string>
     <string name="save_button">Save</string>
     <string name="sure_text">Are you sure?</string>
     <string name="no_text">no</string>

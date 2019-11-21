@@ -22,40 +22,40 @@
                 android:textStyle="italic" />
 
             <EditText
-                android:id="@+id/itemName"
+                android:id="@+id/residenceAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/title"
-                android:layout_width="match_parent"
-                android:hint="@string/hint_item"
-                android:layout_height="wrap_content" />
+                android:hint="@string/hint_address" />
 
             <EditText
-                android:id="@+id/itemQuantity"
-                android:inputType="number"
-                android:layout_below="@id/itemName"
+                android:id="@+id/residenceAvailable"
                 android:layout_width="match_parent"
-                android:hint="@string/hint_qty"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/residenceAddress"
+                android:hint="@string/hint_available"
+                android:inputType="number" />
 
             <EditText
-                android:id="@+id/itemColor"
-                android:layout_below="@id/itemQuantity"
+                android:id="@+id/residenceSize"
                 android:layout_width="match_parent"
-                android:hint="@string/hint_color"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/residenceAvailable"
+                android:hint="@string/hint_size" />
 
             <EditText
-                android:id="@+id/itemSize"
-                android:layout_below="@id/itemColor"
-                android:inputType="number"
+                android:id="@+id/residenceRental"
                 android:layout_width="match_parent"
-                android:hint="@string/hint_size"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/residenceSize"
+                android:hint="@string/hint_rental"
+                android:inputType="number" />
 
             <Button
                 android:id="@+id/saveButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/itemSize"
+                android:layout_below="@id/residenceRental"
                 android:layout_marginEnd="5dp"
                 android:background="@color/colorAccent"
                 android:onClick="@string/save_button"

@@ -1,7 +1,6 @@
 package com.example.microhousingsystem;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -13,8 +12,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -44,7 +41,7 @@ public class ResidenceActivity extends AppCompatActivity {
         byPassActivity();
 
         //check if item was saved
-        List<Residence> items = sqliteHelper.getAllItems();
+        List<Residence> items = sqliteHelper.getAllResidence();
         for (Residence item : items) {
             Log.d("Main", "onCreate: " + item.getItemColor());
         }
@@ -103,10 +100,10 @@ public class ResidenceActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.popup, null);
 
-        itemName = view.findViewById(R.id.itemName);
-        itemQuantity = view.findViewById(R.id.itemQuantity);
-        itemColor = view.findViewById(R.id.itemColor);
-        itemSize = view.findViewById(R.id.itemSize);
+        itemName = view.findViewById(R.id.residenceAddress);
+        itemQuantity = view.findViewById(R.id.residenceAvailable);
+        itemColor = view.findViewById(R.id.residenceSize);
+        itemSize = view.findViewById(R.id.residenceRental);
         saveButton = view.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
