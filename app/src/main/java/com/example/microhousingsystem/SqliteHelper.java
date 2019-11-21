@@ -5,6 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 public class SqliteHelper extends SQLiteOpenHelper {
@@ -179,17 +185,111 @@ public class SqliteHelper extends SQLiteOpenHelper {
             + " ) ";
 
     //using this method we can add users to user table
-    public void addResidence(HousingOfficer ho) {
+    public void addResidence(Residence r) {
 
-        SQLiteDatabase db = this.getWritableDatabase(); //get writable database
-        ContentValues values = new ContentValues(); //create content values to insert
-        values.put(KEY_USER_NAME_HO,ho.getUsername() ); //Put username in  @values
-        values.put(KEY_PASSWORD_HO, ho.getPassword()); //Put password in  @values
-        values.put(KEY_FULLNAME_HO, ho.getFullname()); //Put  in  @values
+        try {
+            SQLiteDatabase db = this.getWritableDatabase(); //get writable database
+            ContentValues values = new ContentValues(); //create content values to insert
+            values.put(KEY_RESIDENCE_ADDRESS,r.getAddress() ); //Put username in  @values
+            values.put(KEY_NUM_OF_UNITS, r.getNumOfUnits()); //Put password in  @values
+            values.put(KEY_SIZE_PER_UNIT, r.getSizePerUnit()); //Put  in  @values
+            values.put(KEY_MONTHLY_RENTAL, r.getMonthlyRental()); //Put  in  @values
 
-
-        long todo_id = db.insert(TABLE_RESIDENCE, null, values); // insert row
+            //Insert into database
+            db.insert(TABLE_RESIDENCE, null, values);
+            Log.i("Database", "added Residence!");
+        } catch (Exception e) {
+            Log.d("AddResidence: ", e.getMessage());
+        }
     }
+
+
+    public Residence getResidence(int id) {
+
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursor = db.query(TABLE_RESIDENCE,
+                    new String[]{KEY_ID_R,
+                            KEY_RESIDENCE_ADDRESS,
+                            KEY_NUM_OF_UNITS,
+                            KEY_SIZE_PER_UNIT },
+                    KEY_ID_R + "=?",
+                    new String[]{String.valueOf(id)}, null, null, null);
+
+            if (cursor != null) {
+                cursor.moveToFirst();
+            }
+
+            Residence item = new Residence();
+
+            if (cursor != null) {
+                item.setResidenceID(cursor.getString(cursor.getColumnIndex((KEY_ID_R))));
+                item.setAddress(cursor.getString(cursor.getColumnIndex(KEY_RESIDENCE_ADDRESS)));
+                item.setNumOfUnits(cursor.getString(cursor.getColumnIndex(KEY_NUM_OF_UNITS)));
+                item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_SIZE_PER_UNIT)));
+            }
+            return item;
+        } catch (Exception e) {
+            Log.d("getResidence: ", e.getMessage());
+            return null;
+        }
+    }
+
+    public List<Residence> getAllResidence() {
+
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+            List<Residence> residenceList = new ArrayList<>();
+
+            Cursor cursor = db.query(TABLE_RESIDENCE,
+                    new String[]{KEY_ID,
+                            KEY_RESIDENCE_ADDRESS,
+                            KEY_NUM_OF_UNITS,
+                            KEY_SIZE_PER_UNIT},
+                    null, null, null, null,
+                    KEY_RESIDENCE_ADDRESS + " ADDRESS");
+
+            if (cursor.moveToFirst()) {
+
+                do {
+
+                    Residence item = new Residence();
+                    item.setResidenceID(cursor.getString(cursor.getColumnIndex((KEY_ID_R))));
+                    item.setAddress(cursor.getString(cursor.getColumnIndex(KEY_RESIDENCE_ADDRESS)));
+                    item.setNumOfUnits(cursor.getString(cursor.getColumnIndex(KEY_NUM_OF_UNITS)));
+                    item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_SIZE_PER_UNIT)));
+
+                    residenceList.add(item);
+                } while (cursor.moveToNext());
+            }
+            db.close();
+            return residenceList;
+        } catch (Exception e) {
+            Log.d("getAllResidence: ", e.getMessage());
+            return null;
+        }
+    }
+
+    public int getResidenceCount() {
+
+        try {
+            String countQuery = "SELECT * FROM " + TABLE_RESIDENCE;
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery(countQuery, null);
+            int result = cursor.getCount();
+            db.close();
+
+            return result;
+        } catch (Exception e) {
+            Log.d("getItemCount: ", e.getMessage());
+            return -1;
+        }
+    }
+
+
+
+
 
 
 
