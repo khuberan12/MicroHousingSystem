@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "696722559147",
+    "firebase_url": "https://microhousingsystem.firebaseio.com",
+    "project_id": "microhousingsystem",
+    "storage_bucket": "microhousingsystem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696722559147:android:c1374f10a3ee05914827ee",
+        "android_client_info": {
+          "package_name": "com.example.microhousingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696722559147-j7pn53p6e2n12jut01cqk6nauqn4r050.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGcl-vv8CHDXfO-I4d6eXO8egLhRHClzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696722559147-j7pn53p6e2n12jut01cqk6nauqn4r050.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
