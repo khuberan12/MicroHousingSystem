@@ -54,7 +54,7 @@ public class ResidenceList extends AppCompatActivity {
 
         itemList = new ArrayList<>();
 
-        //Get items from db
+        //Get Residence from Sqlitehelper
         itemList = sqliteHelper.getAllResidence();
 
         for (Residence item : itemList) {
