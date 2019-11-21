@@ -1,6 +1,7 @@
 package com.example.microhousingsystem;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -12,6 +13,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -41,9 +44,9 @@ public class ResidenceActivity extends AppCompatActivity {
         byPassActivity();
 
         //check if item was saved
-        List<Residence> items = sqliteHelper.getAllResidence();
-        for (Residence item : items) {
-            Log.d("Main", "onCreate: " + item.getItemColor());
+        List<Residence> residences = sqliteHelper.getAllResidence();
+        for (Residence residence : residences) {
+            Log.d("Main", "onCreate: " + residence.getAddress());
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -57,7 +60,7 @@ public class ResidenceActivity extends AppCompatActivity {
     }
 
     private void byPassActivity() {
-        if (sqliteHelper.getItemCount() > 0) {
+        if (sqliteHelper.getResidenceCount() > 0) {
             startActivity(new Intent(ResidenceActivity.this, ResidenceList.class));
             finish();
         }
@@ -65,21 +68,22 @@ public class ResidenceActivity extends AppCompatActivity {
 
     private void saveItem(View view) {
         //Todo: save each item to db
-        Item item = new Item();
+        Residence item = new Residence();
 
-        String newItem = itemName.getText().toString().trim();
-        String newColor = itemColor.getText().toString().trim();
-        int quantity = Integer.parseInt(itemQuantity.getText().toString().trim());
-        int size = Integer.parseInt(itemSize.getText().toString().trim());
+        String add = address.getText().toString().trim();
+        String nu = numOfunit.getText().toString().trim();
+        String su = sizeOfUnit.getText().toString().trim();
+        String mr = monthlyRental.getText().toString().trim();
 
-        item.setItemName(newItem);
-        item.setItemColor(newColor);
-        item.setItemQuantity(quantity);
-        item.setItemSize(size);
 
-        databaseHandler.addItem(item);
+        item.setAddress(add);
+        item.setNumOfUnits(nu);
+        item.setSizePerUnit(su);
+        item.setMonthlyRental(mr);
 
-        Snackbar.make(view, "Item Saved",Snackbar.LENGTH_SHORT)
+        sqliteHelper.addResidence(item);
+
+        Snackbar.make(view, "Residence Saved",Snackbar.LENGTH_SHORT)
                 .show();
 
 
@@ -100,19 +104,19 @@ public class ResidenceActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.popup, null);
 
-        itemName = view.findViewById(R.id.residenceAddress);
-        itemQuantity = view.findViewById(R.id.residenceAvailable);
-        itemColor = view.findViewById(R.id.residenceSize);
-        itemSize = view.findViewById(R.id.residenceRental);
+        address = view.findViewById(R.id.itemName);
+        numOfunit = view.findViewById(R.id.itemQuantity);
+        sizeOfUnit = view.findViewById(R.id.itemColor);
+        monthlyRental = view.findViewById(R.id.itemSize);
         saveButton = view.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (!itemName.getText().toString().isEmpty()
-                        && !itemColor.getText().toString().isEmpty()
-                        && !itemQuantity.getText().toString().isEmpty()
-                        && !itemSize.getText().toString().isEmpty()) {
+                if (!address.getText().toString().isEmpty()
+                        && !numOfunit.getText().toString().isEmpty()
+                        && !sizeOfUnit.getText().toString().isEmpty()
+                        && !monthlyRental.getText().toString().isEmpty()) {
                     saveItem(v);
                 }else {
                     Snackbar.make(v, "Empty Fields not Allowed", Snackbar.LENGTH_SHORT)
