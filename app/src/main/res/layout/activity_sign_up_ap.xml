@@ -63,7 +63,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:text="Sign up form"
+        android:text="Applicant SignUp"
         android:textAlignment="center"
         android:textColor="#F7F7FA"
         android:textSize="24sp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mirage"
+    android:background="@drawable/aubergine"
     tools:context=".SignUpHO">
 
     <Button
@@ -90,10 +90,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Housing Officer"
+        android:layout_marginEnd="32dp"
+        android:text=" Housing Officer SignUp"
         android:textColor="#F7F7FA"
         android:textSize="24sp"
         android:textStyle="bold"
