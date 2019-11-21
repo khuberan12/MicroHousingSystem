@@ -14,20 +14,10 @@
         <activity android:name=".LoginHO" />
         <activity android:name=".LoginAP" />
         <activity android:name=".ListSetUp" />
-        <activity
-            android:name=".SetUpResidence"
-            android:label="@string/title_activity_set_up_residence"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view_resident" />
-        <activity android:name=".AllocateHousing" />
-        <activity android:name=".viewAppAP" />
-        <activity android:name=".ViewAppHO" />
         <activity android:name=".SubmitApplication" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".ViewActivity" />
-        <activity android:name=".SetResidence" />
         <activity android:name=".SignUpHO" />
         <activity android:name=".SignUpAP" />
         <activity android:name=".MainActivity">
