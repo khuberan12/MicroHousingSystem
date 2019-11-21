@@ -1,6 +1,6 @@
 package com.example.microhousingsystem;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +43,5 @@ public class MainActivity extends AppCompatActivity {
         Intent j = new Intent(this, LoginHO.class);
         startActivity(j);
     }
-
 
 }
