@@ -20,11 +20,11 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class ResidenceList extends AppCompatActivity {
 
-    private static final String TAG = "ListActivity";
+    private static final String TAG = "ResidenceList";
     private RecyclerView recyclerView;
-  //  private RecyclerViewAdapter recyclerViewAdapter;
+    private RecyclerViewAdapter recyclerViewAdapter;
     private List<Residence> itemList;
 
     private FloatingActionButton fab;
@@ -110,7 +110,7 @@ public class ListActivity extends AppCompatActivity {
         String add = residenceAddress.getText().toString().trim();
         String nu = residenceAvailable.getText().toString().trim();
         String rs = residenceSize.getText().toString().trim();
-        String rental = residenceRental.getText().toString().trim()
+        String rental = residenceRental.getText().toString().trim();
 
         residence.setAddress(add);
         residence.setNumOfUnits(nu);
@@ -129,7 +129,7 @@ public class ListActivity extends AppCompatActivity {
                 //code to be run
                 alertDialog.dismiss();
                 //Todo: move to next screen - details screen
-                startActivity(new Intent(ListActivity.this, ListActivity.class));
+                startActivity(new Intent(ResidenceList.this, ResidenceList.class));
                 finish();
 
             }

@@ -1,7 +1,6 @@
 package com.example.microhousingsystem;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -13,8 +12,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -104,10 +101,10 @@ public class ResidenceActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.popup, null);
 
-        address = view.findViewById(R.id.itemName);
-        numOfunit = view.findViewById(R.id.itemQuantity);
-        sizeOfUnit = view.findViewById(R.id.itemColor);
-        monthlyRental = view.findViewById(R.id.itemSize);
+        address = view.findViewById(R.id.residenceAddress);
+        numOfunit = view.findViewById(R.id.residenceAvailable);
+        sizeOfUnit = view.findViewById(R.id.residenceSize);
+        monthlyRental = view.findViewById(R.id.residenceRental);
         saveButton = view.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
