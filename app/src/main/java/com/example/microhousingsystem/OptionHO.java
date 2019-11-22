@@ -26,7 +26,7 @@ public class OptionHO extends AppCompatActivity {
     }
 
     public void openAddResidence(){
-        Intent i = new Intent(this, ResidenceActivity.class);
+        Intent i = new Intent(OptionHO.this, ResidenceActivity.class);
         startActivity(i);
     }
 
