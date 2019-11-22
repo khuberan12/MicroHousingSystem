@@ -18,7 +18,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "microHousingSystem";//DATABASE NAME
-    public static final int DATABASE_VERSION = 18 ;//DATABASE VERSION
+    public static final int DATABASE_VERSION = 19 ;//DATABASE VERSION
 
 
     public static final String TABLE_APPLICANT = "applicant"; //TABLE NAME
@@ -286,6 +286,139 @@ public class SqliteHelper extends SQLiteOpenHelper {
             return -1;
         }
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////
+    public static final String TABLE_APPLICATION = "application"; //TABLE NAME
+
+    //TABLE USERS COLUMNS
+    public static final String KEY_ID_APP = "idApp"; //ID COLUMN @primaryKey
+    public static final String KEY_APP_DATE = "appDate";  //COLUMN user name
+    public static final String KEY_REQ_MONTH = "reqMonth";//COLUMN password
+    public static final String KEY_REQ_YEAR = "reqYear";//COLUMN fullname
+    public static final String KEY_STATUS = "status";//COLUMN fullname
+    public static final String SQL_TABLE_APPLICATION = " CREATE TABLE " + TABLE_APPLICATION //SQL for creating users table
+
+            + " ( "
+            + KEY_ID_APP + " INTEGER PRIMARY KEY, "
+            + KEY_APP_DATE + " TEXT, "
+            + KEY_REQ_MONTH + " TEXT,"
+            + KEY_REQ_YEAR + " TEXT,"
+            + KEY_STATUS + " TEXT "
+            + " ) ";
+
+    //using this method we can add users to user table
+    public void addApplication(Application a) {
+
+        try {
+            SQLiteDatabase db = this.getWritableDatabase(); //get writable database
+            ContentValues values = new ContentValues(); //create content values to insert
+            values.put(KEY_APP_DATE,a.getApplicationDate() ); //Put username in  @values
+            values.put(KEY_REQ_MONTH, a.getRequiredMonth()); //Put password in  @values
+            values.put(KEY_REQ_YEAR, a.getRequiredYear()); //Put  in  @values
+            values.put(KEY_STATUS, a.getStatus()); //Put  in  @values
+
+            //Insert into database
+            db.insert(TABLE_APPLICATION, null, values);
+            Log.i("Database", "added Application!");
+        } catch (Exception e) {
+            Log.d("AddApplication: ", e.getMessage());
+        }
+    }
+
+
+    public Application getApplication(int id) {
+
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursor = db.query(TABLE_APPLICATION,
+                    new String[]{KEY_ID_APP,
+                            KEY_APP_DATE,
+                            KEY_REQ_MONTH,
+                            KEY_REQ_YEAR,
+                            KEY_STATUS},
+                    KEY_ID_APP + "=?",
+                    new String[]{String.valueOf(id)}, null, null, null);
+
+            if (cursor != null) {
+                cursor.moveToFirst();
+            }
+
+            Application item = new Application();
+
+            if (cursor != null) {
+                item.setIdApp(cursor.getString(cursor.getColumnIndex((KEY_ID_APP))));
+                item.setApplicationDate(cursor.getString(cursor.getColumnIndex(KEY_APP_DATE)));
+                item.setRequiredMonth(cursor.getString(cursor.getColumnIndex(KEY_REQ_MONTH)));
+                item.setRequiredYear(cursor.getString(cursor.getColumnIndex(KEY_REQ_YEAR)));
+                item.setRequiredYear(cursor.getString(cursor.getColumnIndex(KEY_STATUS)));
+            }
+            return item;
+        } catch (Exception e) {
+            Log.d("getApplication: ", e.getMessage());
+            return null;
+        }
+    }
+
+    public List<Application> getAllApplication() {
+
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+            List<Application> applicationList = new ArrayList<>();
+
+            Cursor cursor = db.query(TABLE_APPLICATION,
+                    new String[]{KEY_ID_APP,
+                            KEY_APP_DATE,
+                            KEY_REQ_MONTH,
+                            KEY_REQ_YEAR,
+                            KEY_STATUS},
+                    null, null, null, null,
+                    KEY_ID_APP + " DESC");
+
+            if (cursor.moveToFirst()) {
+
+                do {
+
+                    Application item = new Application();
+                    item.setIdApp(cursor.getString(cursor.getColumnIndex((KEY_ID_APP))));
+                    item.setApplicationDate(cursor.getString(cursor.getColumnIndex(KEY_APP_DATE)));
+                    item.setRequiredMonth(cursor.getString(cursor.getColumnIndex(KEY_REQ_MONTH)));
+                    item.setRequiredYear(cursor.getString(cursor.getColumnIndex(KEY_REQ_YEAR)));
+                    item.setStatus(cursor.getString(cursor.getColumnIndex(KEY_STATUS)));
+
+                    applicationList.add(item);
+                } while (cursor.moveToNext());
+            }
+            db.close();
+            return applicationList;
+        } catch (Exception e) {
+            Log.d("getAllApplication: ", e.getMessage());
+            return null;
+        }
+    }
+
+    public int getApplicationCount() {
+
+        try {
+            String countQuery = "SELECT * FROM " + TABLE_APPLICATION;
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery(countQuery, null);
+            int result = cursor.getCount();
+            db.close();
+
+            return result;
+        } catch (Exception e) {
+            Log.d("getApplicationCount: ", e.getMessage());
+            return -1;
+        }
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 
