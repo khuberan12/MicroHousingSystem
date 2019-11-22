@@ -1,7 +1,6 @@
 package com.example.microhousingsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +14,7 @@ public class OptionHO extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option_ho);
 
-        btnAddResidence = findViewById(R.id.btnAddResidence);
+        btnAddResidence = findViewById(R.id.btnViewResidence);
 
         btnAddResidence.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +24,7 @@ public class OptionHO extends AppCompatActivity {
         });
     }
 
-    public void openAddResidence(){
+    public void openAddResidence() {
         Intent i = new Intent(OptionHO.this, ResidenceActivity.class);
         startActivity(i);
     }

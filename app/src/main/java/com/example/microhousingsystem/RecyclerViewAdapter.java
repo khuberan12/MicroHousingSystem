@@ -66,10 +66,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public TextView residenceAvailability;
         public TextView residenceSize;
         public TextView residenceRental;
-
-        public Button editButton;
-        public Button deleteButton;
-
         public int id;
 
         public ViewHolder(@NonNull View itemView, Context ctx) {
@@ -91,10 +87,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Residence item = itemList.get(position);
 
 
-
         }
-
-
 
 
     }

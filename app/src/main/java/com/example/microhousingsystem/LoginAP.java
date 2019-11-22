@@ -13,11 +13,11 @@ public class LoginAP extends AppCompatActivity {
     EditText usernameEditText;
     EditText passwordEditText;
     SqliteHelper sqliteHelper;
-    Button btnSignup ;
+    Button btnSignup;
     Button login;
 
 
-    public void Login1 (View view){
+    public void LoginAP(View view) {
 
 
         //get value from edittext field
@@ -25,11 +25,8 @@ public class LoginAP extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
 
 
-
         //authenticate user
-        User currentApplicant = sqliteHelper.Authenticate(new Applicant(null,username,password));
-
-
+        User currentApplicant = sqliteHelper.Authenticate(new Applicant(null, username, password));
 
 
         //Check Authentication is successful or not
@@ -53,7 +50,7 @@ public class LoginAP extends AppCompatActivity {
         setContentView(R.layout.activity_login_ap);
 
         //To view housing officer or residence
-        btnSignup =  findViewById(R.id.btnSignup);
+        btnSignup = findViewById(R.id.btnSignup);
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,11 +58,11 @@ public class LoginAP extends AppCompatActivity {
             }
         });
 
-        usernameEditText =findViewById(R.id.username);
-        passwordEditText =findViewById(R.id.password);
-        login =findViewById(R.id.btnLogin);
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
+        login = findViewById(R.id.btnLogin);
 
-        sqliteHelper= new SqliteHelper(this);
+        sqliteHelper = new SqliteHelper(this);
 
     }
 

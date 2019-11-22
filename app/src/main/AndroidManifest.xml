@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResidenceList"></activity>
+        <activity android:name=".SubmitApplication"></activity>
+        <activity android:name=".ResidenceList" />
         <activity android:name=".ResidenceActivity" />
         <activity android:name=".OptionHO" />
         <activity android:name=".OptionAP" />
         <activity android:name=".LoginHO" />
         <activity android:name=".LoginAP" />
         <activity android:name=".ListSetUp" />
-        <activity android:name=".SubmitApplication" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />

@@ -7,18 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
 public class SqliteHelper extends SQLiteOpenHelper {
 
 
-
     public static final String DATABASE_NAME = "microHousingSystem";//DATABASE NAME
-    public static final int DATABASE_VERSION = 19 ;//DATABASE VERSION
+    public static final int DATABASE_VERSION = 19;//DATABASE VERSION
 
 
     public static final String TABLE_APPLICANT = "applicant"; //TABLE NAME
@@ -31,7 +28,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public static final String KEY_EMAIL = "email";//COLUMN EMAIL
     public static final String KEY_MONTHLYINCOME = "monthlyIncome";  //COLUMN MONTHLY INCOME
     public static final String KEY_USER_TYPE = "userType";
-
 
 
     public static final String SQL_TABLE_APPLICANT = " CREATE TABLE " + TABLE_APPLICANT //SQL FOR CREATING APPLICANT TABLE
@@ -59,7 +55,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_TABLE_RESIDENCE);
 
 
-
     }
 
     @Override
@@ -79,12 +74,11 @@ public class SqliteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase(); //get writable database
         ContentValues values = new ContentValues(); //create content values to insert
         values.put(KEY_FULL_NAME, ap.getFullname()); //Put  in  @values
-        values.put(KEY_USER_NAME,ap.getUsername() ); //Put username in  @values
+        values.put(KEY_USER_NAME, ap.getUsername()); //Put username in  @values
         values.put(KEY_PASSWORD, ap.getPassword()); //Put password in  @values
         values.put(KEY_EMAIL, ap.getEmail()); //Put password in  @values
         values.put(KEY_MONTHLYINCOME, ap.getMonthlyIncome()); //Put password in  @values
         values.put(KEY_USER_TYPE, ap.getUserType());//pls work laa babi
-
 
 
         long todo_id = db.insert(TABLE_APPLICANT, null, values); // insert row
@@ -135,10 +129,9 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase(); //get writable database
         ContentValues values = new ContentValues(); //create content values to insert
-        values.put(KEY_USER_NAME_HO,ho.getUsername() ); //Put username in  @values
+        values.put(KEY_USER_NAME_HO, ho.getUsername()); //Put username in  @values
         values.put(KEY_PASSWORD_HO, ho.getPassword()); //Put password in  @values
         values.put(KEY_FULLNAME_HO, ho.getFullname()); //Put  in  @values
-
 
 
         long todo_id = db.insert(TABLE_HO, null, values); // insert row
@@ -165,6 +158,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         //if user password does not matches or there is no record with that email then return @false
         return null;
     }
+
     //////////////////////////////////////////////////////////////////////////////////////////
     public static final String TABLE_RESIDENCE = "residence"; //TABLE NAME
 
@@ -190,7 +184,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         try {
             SQLiteDatabase db = this.getWritableDatabase(); //get writable database
             ContentValues values = new ContentValues(); //create content values to insert
-            values.put(KEY_RESIDENCE_ADDRESS,r.getAddress() ); //Put username in  @values
+            values.put(KEY_RESIDENCE_ADDRESS, r.getAddress()); //Put username in  @values
             values.put(KEY_NUM_OF_UNITS, r.getNumOfUnits()); //Put password in  @values
             values.put(KEY_SIZE_PER_UNIT, r.getSizePerUnit()); //Put  in  @values
             values.put(KEY_MONTHLY_RENTAL, r.getMonthlyRental()); //Put  in  @values
@@ -213,7 +207,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
                     new String[]{KEY_ID_R,
                             KEY_RESIDENCE_ADDRESS,
                             KEY_NUM_OF_UNITS,
-                            KEY_SIZE_PER_UNIT },
+                            KEY_SIZE_PER_UNIT,
+                            KEY_MONTHLY_RENTAL},
                     KEY_ID_R + "=?",
                     new String[]{String.valueOf(id)}, null, null, null);
 
@@ -228,6 +223,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
                 item.setAddress(cursor.getString(cursor.getColumnIndex(KEY_RESIDENCE_ADDRESS)));
                 item.setNumOfUnits(cursor.getString(cursor.getColumnIndex(KEY_NUM_OF_UNITS)));
                 item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_SIZE_PER_UNIT)));
+                item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_MONTHLY_RENTAL)));
             }
             return item;
         } catch (Exception e) {
@@ -246,7 +242,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
                     new String[]{KEY_ID_R,
                             KEY_RESIDENCE_ADDRESS,
                             KEY_NUM_OF_UNITS,
-                            KEY_SIZE_PER_UNIT},
+                            KEY_SIZE_PER_UNIT,
+                            KEY_MONTHLY_RENTAL},
                     null, null, null, null,
                     KEY_ID_R + " DESC");
 
@@ -259,6 +256,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
                     item.setAddress(cursor.getString(cursor.getColumnIndex(KEY_RESIDENCE_ADDRESS)));
                     item.setNumOfUnits(cursor.getString(cursor.getColumnIndex(KEY_NUM_OF_UNITS)));
                     item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_SIZE_PER_UNIT)));
+                    item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_MONTHLY_RENTAL)));
 
                     residenceList.add(item);
                 } while (cursor.moveToNext());
@@ -314,7 +312,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         try {
             SQLiteDatabase db = this.getWritableDatabase(); //get writable database
             ContentValues values = new ContentValues(); //create content values to insert
-            values.put(KEY_APP_DATE,a.getApplicationDate() ); //Put username in  @values
+            values.put(KEY_APP_DATE, a.getApplicationDate()); //Put username in  @values
             values.put(KEY_REQ_MONTH, a.getRequiredMonth()); //Put password in  @values
             values.put(KEY_REQ_YEAR, a.getRequiredYear()); //Put  in  @values
             values.put(KEY_STATUS, a.getStatus()); //Put  in  @values
@@ -417,19 +415,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

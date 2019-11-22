@@ -2,12 +2,12 @@ package com.example.microhousingsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.os.Handler;
 import android.util.Log;
@@ -26,15 +26,12 @@ public class ResidenceActivity extends AppCompatActivity {
     private EditText numOfunit;
     private EditText sizeOfUnit;
     private EditText monthlyRental;
-    SqliteHelper sqliteHelper;
+    private SqliteHelper sqliteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_residence_activity);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         sqliteHelper = new SqliteHelper(this);
 
@@ -80,7 +77,7 @@ public class ResidenceActivity extends AppCompatActivity {
 
         sqliteHelper.addResidence(item);
 
-        Snackbar.make(view, "Residence Saved",Snackbar.LENGTH_SHORT)
+        Snackbar.make(view, "New Residence Created", Snackbar.LENGTH_SHORT)
                 .show();
 
 
@@ -115,7 +112,7 @@ public class ResidenceActivity extends AppCompatActivity {
                         && !sizeOfUnit.getText().toString().isEmpty()
                         && !monthlyRental.getText().toString().isEmpty()) {
                     saveItem(v);
-                }else {
+                } else {
                     Snackbar.make(v, "Empty Fields not Allowed", Snackbar.LENGTH_SHORT)
                             .show();
                 }

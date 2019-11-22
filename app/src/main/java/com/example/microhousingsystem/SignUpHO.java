@@ -65,7 +65,7 @@ public class SignUpHO extends AppCompatActivity {
     }
 
     public void openMain() {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, LoginHO.class);
         startActivity(i);
     }
 
