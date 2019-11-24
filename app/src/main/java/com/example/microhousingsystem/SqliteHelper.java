@@ -15,7 +15,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "microHousingSystem";//DATABASE NAME
-    public static final int DATABASE_VERSION = 19;//DATABASE VERSION
+    public static final int DATABASE_VERSION = 26;//DATABASE VERSION
 
 
     public static final String TABLE_APPLICANT = "applicant"; //TABLE NAME
@@ -117,8 +117,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public static final String SQL_TABLE_HO = " CREATE TABLE " + TABLE_HO //SQL for creating users table
 
             + " ( "
-            + KEY_ID_HO + " INTEGER PRIMARY KEY, "
-            + KEY_USER_NAME_HO + " TEXT, "
+            + KEY_ID_HO + " INTEGER PRIMARY KEY,"
+            + KEY_USER_NAME_HO + " TEXT,"
             + KEY_PASSWORD_HO + " TEXT,"
             + KEY_FULLNAME_HO + " TEXT,"
             + KEY_USER_TYPEHO + " TEXT "
@@ -171,8 +171,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public static final String SQL_TABLE_RESIDENCE = " CREATE TABLE " + TABLE_RESIDENCE //SQL for creating users table
 
             + " ( "
-            + KEY_ID_R + " INTEGER PRIMARY KEY, "
-            + KEY_RESIDENCE_ADDRESS + " TEXT, "
+            + KEY_ID_R + " INTEGER PRIMARY KEY,"
+            + KEY_RESIDENCE_ADDRESS + " TEXT,"
             + KEY_NUM_OF_UNITS + " TEXT,"
             + KEY_SIZE_PER_UNIT + " TEXT,"
             + KEY_MONTHLY_RENTAL + " TEXT "
@@ -184,10 +184,11 @@ public class SqliteHelper extends SQLiteOpenHelper {
         try {
             SQLiteDatabase db = this.getWritableDatabase(); //get writable database
             ContentValues values = new ContentValues(); //create content values to insert
-            values.put(KEY_RESIDENCE_ADDRESS, r.getAddress()); //Put username in  @values
-            values.put(KEY_NUM_OF_UNITS, r.getNumOfUnits()); //Put password in  @values
-            values.put(KEY_SIZE_PER_UNIT, r.getSizePerUnit()); //Put  in  @values
-            values.put(KEY_MONTHLY_RENTAL, r.getMonthlyRental()); //Put  in  @values
+            values.put(KEY_ID_R, r.getResidenceID());//Put id in @values
+            values.put(KEY_RESIDENCE_ADDRESS, r.getAddress()); //Put address in  @values
+            values.put(KEY_NUM_OF_UNITS, r.getNumOfUnits()); //Put units in  @values
+            values.put(KEY_SIZE_PER_UNIT, r.getSizePerUnit()); //Put  size  @values
+            values.put(KEY_MONTHLY_RENTAL, r.getMonthlyRental()); //Put  rental  @values
 
             //Insert into database
             db.insert(TABLE_RESIDENCE, null, values);
@@ -223,7 +224,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
                 item.setAddress(cursor.getString(cursor.getColumnIndex(KEY_RESIDENCE_ADDRESS)));
                 item.setNumOfUnits(cursor.getString(cursor.getColumnIndex(KEY_NUM_OF_UNITS)));
                 item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_SIZE_PER_UNIT)));
-                item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_MONTHLY_RENTAL)));
+                item.setMonthlyRental(cursor.getString(cursor.getColumnIndex(KEY_MONTHLY_RENTAL)));
             }
             return item;
         } catch (Exception e) {
@@ -256,7 +257,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
                     item.setAddress(cursor.getString(cursor.getColumnIndex(KEY_RESIDENCE_ADDRESS)));
                     item.setNumOfUnits(cursor.getString(cursor.getColumnIndex(KEY_NUM_OF_UNITS)));
                     item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_SIZE_PER_UNIT)));
-                    item.setSizePerUnit(cursor.getString(cursor.getColumnIndex(KEY_MONTHLY_RENTAL)));
+                    item.setMonthlyRental(cursor.getString(cursor.getColumnIndex(KEY_MONTHLY_RENTAL)));
 
                     residenceList.add(item);
                 } while (cursor.moveToNext());
@@ -299,8 +300,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public static final String SQL_TABLE_APPLICATION = " CREATE TABLE " + TABLE_APPLICATION //SQL for creating users table
 
             + " ( "
-            + KEY_ID_APP + " INTEGER PRIMARY KEY, "
-            + KEY_APP_DATE + " TEXT, "
+            + KEY_ID_APP + " INTEGER PRIMARY KEY,"
+            + KEY_APP_DATE + " TEXT,"
             + KEY_REQ_MONTH + " TEXT,"
             + KEY_REQ_YEAR + " TEXT,"
             + KEY_STATUS + " TEXT "

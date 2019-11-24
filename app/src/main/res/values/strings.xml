@@ -25,7 +25,7 @@
     <string name="hint_rental">Enter Monthly Rental</string>
     <string name="save_button">Save</string>
     <string name="LoginAP" />
-    <string name="LginHO" />
+    <string name="LoginHO" />
     <string name="RelativeLayout">RelativeLayout</string>
 
 </resources>

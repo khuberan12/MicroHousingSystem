@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class SignUpHO extends AppCompatActivity {
     private Button btnBackHO;
-    private Button btnSignupHO;
 
     EditText usernameET;
     EditText passwordET;
@@ -58,8 +57,6 @@ public class SignUpHO extends AppCompatActivity {
         fullnameET =findViewById(R.id.txtFullnameHO);
 
         sqliteHelper = new SqliteHelper(this);
-
-
 
 
     }

@@ -35,6 +35,7 @@ public class ResidenceList extends AppCompatActivity {
     private EditText residenceAvailable;
     private EditText residenceSize;
     private EditText residenceRental;
+    private RelativeLayout RelativeLayout;
 
     private SqliteHelper sqliteHelper;
 
@@ -46,6 +47,7 @@ public class ResidenceList extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
         fab = findViewById(R.id.fab);
+        RelativeLayout = findViewById(R.id.RelativeLayout);
 
 
         sqliteHelper = new SqliteHelper(this);
@@ -71,7 +73,6 @@ public class ResidenceList extends AppCompatActivity {
                 createPopDialog();
             }
         });
-
     }
 
     private void createPopDialog() {
@@ -152,6 +153,7 @@ public class ResidenceList extends AppCompatActivity {
 
     public void openSubmit() {
         Intent i = new Intent(ResidenceList.this, SubmitApplication.class);
+
         startActivity(i);
     }
 
