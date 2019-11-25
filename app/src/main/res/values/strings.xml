@@ -27,5 +27,6 @@
     <string name="LoginAP" />
     <string name="LoginHO" />
     <string name="RelativeLayout">RelativeLayout</string>
+    <string name="submitApp" />
 
 </resources>
