@@ -10,31 +10,42 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
-public class ViewApplication extends AppCompatActivity {
-    private Button btnBack;
+
+public class AllocateHousing extends AppCompatActivity {
+
+    private Button button;
+    private Button button2;
     ListView applicationView;
     SqliteHelper sqliteHelper;
     Application application;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_application);
+        setContentView(R.layout.activity_allocate_housing);
 
-        btnBack = findViewById(R.id.btnBackho);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openOptionAp();
+                accept();
             }
         });
 
-        sqliteHelper = new SqliteHelper(ViewApplication.this);
+        button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                delete();
+            }
+        });
+
+        sqliteHelper = new SqliteHelper(AllocateHousing.this);
         applicationView = findViewById(R.id.applicationView);
 
         applicationView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -42,10 +53,10 @@ public class ViewApplication extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 application = (Application) applicationView.getItemAtPosition(position);
 
-                for(int i=0; i < applicationView.getChildCount(); i++){
-                    if (position == i){
+                for (int i = 0; i < applicationView.getChildCount(); i++) {
+                    if (position == i) {
                         applicationView.getChildAt(i).setBackgroundColor(Color.parseColor("#86000000"));
-                    }else{
+                    } else {
                         applicationView.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
                     }
                 }
@@ -53,11 +64,11 @@ public class ViewApplication extends AppCompatActivity {
             }
         });
 
-        GetAllApplication();
+        GetAllContacts();
 
     }
 
-    public void GetAllApplication(){
+    public void GetAllContacts() {
 
         application = null;
         List<Application> contactList = sqliteHelper.getAllApplication();
@@ -65,8 +76,16 @@ public class ViewApplication extends AppCompatActivity {
         applicationView.setAdapter(adapter);
     }
 
-    public void openOptionAp(){
-        Intent i = new Intent(this,OptionAP.class);
+    public void accept(){
+        Intent i = new Intent(AllocateHousing.this, OptionHO.class);
         startActivity(i);
+        Toast.makeText(this, "Your application has been accepted.", Toast.LENGTH_SHORT).show();
+    }
+
+    public void delete(){
+        Intent i = new Intent(AllocateHousing.this, OptionHO.class);
+        startActivity(i);
+        Toast.makeText(this, "Your application has been deleted.", Toast.LENGTH_SHORT).show();
     }
 }
+

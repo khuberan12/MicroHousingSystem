@@ -13,8 +13,8 @@ import android.widget.ListView;
 
 import java.util.List;
 
-public class ViewApplication extends AppCompatActivity {
-    private Button btnBack;
+public class ViewApplicationHO extends AppCompatActivity {
+    private Button btnBackho;
     ListView applicationView;
     SqliteHelper sqliteHelper;
     Application application;
@@ -24,17 +24,17 @@ public class ViewApplication extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_application);
+        setContentView(R.layout.activity_view_application_ho);
 
-        btnBack = findViewById(R.id.btnBackho);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnBackho = findViewById(R.id.btnBackho);
+        btnBackho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openOptionAp();
+                openOptionHO();
             }
         });
 
-        sqliteHelper = new SqliteHelper(ViewApplication.this);
+        sqliteHelper = new SqliteHelper(ViewApplicationHO.this);
         applicationView = findViewById(R.id.applicationView);
 
         applicationView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,8 +65,8 @@ public class ViewApplication extends AppCompatActivity {
         applicationView.setAdapter(adapter);
     }
 
-    public void openOptionAp(){
-        Intent i = new Intent(this,OptionAP.class);
+    public void openOptionHO(){
+        Intent i = new Intent(this,OptionHO.class);
         startActivity(i);
     }
 }

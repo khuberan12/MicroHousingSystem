@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResidenceListAP"></activity>
+        <activity android:name=".ViewApplicationHO"></activity>
+        <activity android:name=".AllocateHousing" />
+        <activity android:name=".ResidenceListAP" />
         <activity android:name=".ViewApplication" />
         <activity android:name=".SubmitApplication" />
         <activity android:name=".ResidenceList" />

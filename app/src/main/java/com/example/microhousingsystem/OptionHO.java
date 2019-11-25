@@ -9,11 +9,21 @@ import android.widget.Button;
 public class OptionHO extends AppCompatActivity {
     private Button btnAddResidence;
     private Button btnViewApp;
+    private Button btnAllocate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option_ho);
+
+        btnAllocate = findViewById(R.id.btnAllocate);
+
+        btnAllocate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAllocate();
+            }
+        });
 
         btnAddResidence = findViewById(R.id.btnViewResidence);
 
@@ -44,4 +54,8 @@ public class OptionHO extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void openAllocate(){
+        Intent i = new Intent(OptionHO.this, AllocateHousing.class);
+        startActivity(i);
+    }
 }

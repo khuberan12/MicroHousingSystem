@@ -22,6 +22,15 @@ public class ResidenceListAP extends AppCompatActivity {
     private List<Residence> itemList;
     private SqliteHelper sqliteHelper;
 
+    public void Submit(View view) {
+        RelativeLayout RelativeLayout = (RelativeLayout) findViewById(R.id.RelativeLayout);
+        RelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSubmit();
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +39,7 @@ public class ResidenceListAP extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
 
-        sqliteHelper = new   SqliteHelper(this);
+        sqliteHelper = new SqliteHelper(this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -47,22 +56,12 @@ public class ResidenceListAP extends AppCompatActivity {
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerViewAdapter.notifyDataSetChanged();
     }
-    public void Submit(View view) {
-        RelativeLayout RelativeLayout = (RelativeLayout) findViewById(R.id.RelativeLayout);
-        RelativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSubmit();
-            }
-        });
-    }
+
 
     public void openSubmit() {
         Intent i = new Intent(ResidenceListAP.this, SubmitApplication.class);
         startActivity(i);
     }
-
-
 }
 
 

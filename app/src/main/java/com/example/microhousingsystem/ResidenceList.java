@@ -131,7 +131,6 @@ public class ResidenceList extends AppCompatActivity {
             }
         }, 1200);// 1sec
 
-
     }
 
 }
