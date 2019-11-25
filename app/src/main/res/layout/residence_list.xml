@@ -78,12 +78,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/editButton"
+                    android:id="@+id/editButton1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="15dp"
                     android:background="@android:drawable/ic_menu_edit"
-                    android:onClick="onClick" />
+                    android:onClick="on" />
 
                 <Button
                     android:id="@+id/deleteButton"
