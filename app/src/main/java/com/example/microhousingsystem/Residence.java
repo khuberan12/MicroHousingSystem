@@ -8,7 +8,7 @@ public class Residence {
     private String sizePerUnit;
     private String monthlyRental;
 
-    public Residence(String residenceID, String address, String numOfUnits, String sizePerUnit, String monthlyRental) {
+    public Residence (String residenceID, String address, String numOfUnits, String sizePerUnit, String monthlyRental) {
         this.residenceID = residenceID;
         this.address = address;
         this.numOfUnits = numOfUnits;

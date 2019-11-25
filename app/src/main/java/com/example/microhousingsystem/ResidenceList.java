@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +27,6 @@ public class ResidenceList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private List<Residence> itemList;
-
     private FloatingActionButton fab;
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
@@ -35,6 +35,7 @@ public class ResidenceList extends AppCompatActivity {
     private EditText residenceAvailable;
     private EditText residenceSize;
     private EditText residenceRental;
+    private RelativeLayout RelativeLayout;
 
     private SqliteHelper sqliteHelper;
 
@@ -46,6 +47,7 @@ public class ResidenceList extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
         fab = findViewById(R.id.fab);
+        RelativeLayout = findViewById(R.id.RelativeLayout);
 
 
         sqliteHelper = new SqliteHelper(this);
@@ -54,7 +56,7 @@ public class ResidenceList extends AppCompatActivity {
 
         itemList = new ArrayList<>();
 
-       // Get items from db
+        // Get items from db
         itemList = sqliteHelper.getAllResidence();
 
         for (Residence item : itemList) {
@@ -92,10 +94,11 @@ public class ResidenceList extends AppCompatActivity {
                 if (!residenceAddress.getText().toString().isEmpty()
                         && !residenceAvailable.getText().toString().isEmpty()
                         && !residenceSize.getText().toString().isEmpty()
-                        && !residenceAddress.getText().toString().isEmpty()) {
+                        && !residenceAddress.getText().toString().isEmpty()
+                        && !residenceRental.getText().toString().isEmpty()) {
                     saveItem(v);
-                }else {
-                    Snackbar.make(v, "Empty Fields not Allowed", Snackbar.LENGTH_SHORT)
+                } else {
+                    Snackbar.make(v, "Empty Fields Not Allowed", Snackbar.LENGTH_SHORT)
                             .show();
                 }
 
@@ -119,7 +122,7 @@ public class ResidenceList extends AppCompatActivity {
 
         sqliteHelper.addResidence(residence);
 
-        Snackbar.make(view, "Item Saved",Snackbar.LENGTH_SHORT)
+        Snackbar.make(view, "New Residence Created", Snackbar.LENGTH_SHORT)
                 .show();
 
 
@@ -134,5 +137,23 @@ public class ResidenceList extends AppCompatActivity {
 
             }
         }, 1200);// 1sec
+
+
     }
+
+    public void Submit(View view) {
+        RelativeLayout RelativeLayout = (RelativeLayout) findViewById(R.id.RelativeLayout);
+        RelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSubmit();
+            }
+        });
+    }
+
+    public void openSubmit() {
+        Intent i = new Intent(ResidenceList.this, SubmitApplication.class);
+        startActivity(i);
+    }
+
 }

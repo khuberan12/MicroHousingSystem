@@ -71,7 +71,7 @@ public class SignUpAP extends AppCompatActivity {
     }
 
     public void openMain() {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, LoginAP.class);
         startActivity(i);
     }
 
