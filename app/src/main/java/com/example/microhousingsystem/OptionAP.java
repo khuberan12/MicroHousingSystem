@@ -39,7 +39,7 @@ public class OptionAP extends AppCompatActivity {
     }
 
     public void openAddResidence() {
-        Intent i = new Intent(OptionAP.this, ResidenceActivity.class);
+        Intent i = new Intent(OptionAP.this, ResidenceListAP.class);
         startActivity(i);
     }
 

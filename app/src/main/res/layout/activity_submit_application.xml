@@ -46,13 +46,29 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="?attr/colorAccent"
-        android:onClick="@string/submitApp"
+        android:onClick="submitApp"
         android:text="Submit"
         android:textColor="#33FF99"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enter_year" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="?attr/colorAccent"
+        android:onClick="cancelButton"
+        android:text="Cancel"
+        android:textColor="#33FF99"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
 
     <EditText
         android:id="@+id/enter_month"

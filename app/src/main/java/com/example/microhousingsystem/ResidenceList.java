@@ -136,19 +136,4 @@ public class ResidenceList extends AppCompatActivity {
 
     }
 
-    public void Submit(View view) {
-        RelativeLayout RelativeLayout = (RelativeLayout) findViewById(R.id.RelativeLayout);
-        RelativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSubmit();
-            }
-        });
-    }
-
-    public void openSubmit() {
-        Intent i = new Intent(ResidenceList.this, SubmitApplication.class);
-        startActivity(i);
-    }
-
 }
