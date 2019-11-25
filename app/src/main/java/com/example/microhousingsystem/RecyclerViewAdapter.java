@@ -101,7 +101,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     break;
                 case R.id.deleteButton:
                     //delete item
-                    deleteItem(item.());
+                   // deleteItem(item.());
                     break;
             }
 
