@@ -26,7 +26,7 @@ public class ResidenceActivity extends AppCompatActivity {
     private EditText numOfunit;
     private EditText sizeOfUnit;
     private EditText monthlyRental;
-    SqliteHelper sqliteHelper;
+        SqliteHelper sqliteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
