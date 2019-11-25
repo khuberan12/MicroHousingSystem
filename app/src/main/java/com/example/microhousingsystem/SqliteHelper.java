@@ -298,7 +298,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void deleteItem(int id) {
+    public void deleteItem(String id) {
 
         try {
             SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
