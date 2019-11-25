@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,13 +38,52 @@ public class SignUpAP extends AppCompatActivity {
         newAp.setEmail(emailET.getText().toString().trim());
         newAp.setMonthlyIncome(monthlyInconmeET.getText().toString().trim());
         newAp.getUserType();
+        validate();
 
-        sqliteHelper.addApplicant(newAp);
-        Toast.makeText(this, "You have been registered as Applicant", Toast.LENGTH_SHORT).show();
-        finish();
+        if(!validate()) {
+            Toast.makeText(this,"Signup has Failed",Toast.LENGTH_SHORT).show();
+        }
+        else {
+
+            sqliteHelper.addApplicant(newAp);
+            Toast.makeText(this, "You have been registered as Applicant", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+
+
 
 
     }
+
+    //validation
+    public boolean validate() {
+        boolean valid = true;
+        if (usernameET.length() < 1 || usernameET.length() > 10) {
+            usernameET.setError("Please enter less than 10 characters ");
+            valid = false;
+        }
+        if(passwordET.length()<4){
+            passwordET.setError("Please enter valid password");
+            valid = false;
+        }
+        if (fullnameET.length() < 1 || fullnameET.length() > 20) {
+            fullnameET.setError("Please enter less than 20 characters");
+            valid = false;
+        }
+        if(emailET.length()<1 || !Patterns.EMAIL_ADDRESS.matcher((CharSequence) emailET).matches()){
+            emailET.setError("Please enter valid email address");
+            valid = false;
+        }
+
+        if (monthlyInconmeET.length()<1 ) {
+            monthlyInconmeET.setError("Please enter a valid monthly income ");
+            valid = false;
+        }
+
+        return valid;
+    }
+
 
 
     @Override
