@@ -19,11 +19,7 @@ public class SubmitApplication extends AppCompatActivity {
 
     Application application;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_submit_application);
-
+    public void submitApp(View view){
 
         sqliteHelper = new SqliteHelper(SubmitApplication.this);
         enter_date = findViewById(R.id.enter_date);
@@ -39,20 +35,28 @@ public class SubmitApplication extends AppCompatActivity {
             enter_month.setText(application.getRequiredMonth());
             enter_year.setText(application.getRequiredYear());
 
-            btnSubmit = findViewById(R.id.btnSubmit);
-            btnSubmit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    openViewApp();
-                }
-            });
-
         }
+
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_submit_application);
+
+        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openViewApp();
+            }
+        });
+
+
     }
 
     public void openViewApp() {
         Intent i = new Intent(this, ViewApplication.class);
         startActivity(i);
-        Toast.makeText(this, "Your application has been submitted", Toast.LENGTH_SHORT).show();
+
     }
 }
