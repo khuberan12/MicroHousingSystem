@@ -68,7 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public Button editButton;
         public Button deleteButton;
 
-        public int residence_ID;
+        public int id;
 
         public ViewHolder(@NonNull View itemView, Context ctx) {
             super(itemView);
@@ -101,13 +101,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     break;
                 case R.id.deleteButton:
                     //delete item
-                   // deleteItem(item.());
+                   deleteItem(item.getResidenceID());
                     break;
             }
 
         }
 
-        public void deleteItem(final int residenceID) {
+        public void deleteItem(final String residenceID) {
 
             builder = new AlertDialog.Builder(context);
 
@@ -155,7 +155,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             final EditText residenceSize;
             final EditText residenceRental;
 
-            residenceID = view.findViewById(R.id.residence_ID);
+
             residenceAddress = view.findViewById(R.id.residenceAddress);
             residenceAvailability = view.findViewById(R.id.residenceAvailable);
             residenceSize = view.findViewById(R.id.residence_size);
@@ -163,7 +163,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             saveButton = view.findViewById(R.id.saveButton);
             saveButton.setText(R.string.update_text);
 
-            residenceID.setText(newItem.getResidenceID());
+
             residenceAddress.setText(String.valueOf(newItem.getAddress()));
             residenceAvailability.setText(String.valueOf(newItem.getNumOfUnits()));
             residenceSize.setText(String.valueOf(newItem.getSizePerUnit()));
