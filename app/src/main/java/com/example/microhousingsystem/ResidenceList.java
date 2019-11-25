@@ -153,7 +153,6 @@ public class ResidenceList extends AppCompatActivity {
 
     public void openSubmit() {
         Intent i = new Intent(ResidenceList.this, SubmitApplication.class);
-
         startActivity(i);
     }
 
