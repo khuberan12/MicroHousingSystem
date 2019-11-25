@@ -6,8 +6,6 @@ import android.os.Bundle;
 
 public class SubmitApplication extends AppCompatActivity {
 
-    private static final String TAG = "SubmitApplication";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
