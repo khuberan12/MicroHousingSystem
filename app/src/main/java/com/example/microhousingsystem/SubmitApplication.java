@@ -6,11 +6,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class SubmitApplication extends AppCompatActivity {
 
+    SqliteHelper sqliteHelper;
     private Button btnSubmit;
+    private EditText enter_date;
+    private EditText enter_month;
+    private EditText enter_year;
 
+    Application application;
+
+    public void submitApp(View view){
+
+        sqliteHelper = new SqliteHelper(SubmitApplication.this);
+        enter_date = findViewById(R.id.enter_date);
+        enter_month = findViewById(R.id.enter_month);
+        enter_year = findViewById(R.id.enter_year);
+
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("id", -1);
+        if (id != -1) {
+            application = sqliteHelper.getApplication(id);
+
+            enter_date.setText(application.getApplicationDate());
+            enter_month.setText(application.getRequiredMonth());
+            enter_year.setText(application.getRequiredYear());
+
+        }
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +51,12 @@ public class SubmitApplication extends AppCompatActivity {
             }
         });
 
+
     }
 
-    public void openViewApp () {
+    public void openViewApp() {
         Intent i = new Intent(this, ViewApplication.class);
         startActivity(i);
+
     }
 }
