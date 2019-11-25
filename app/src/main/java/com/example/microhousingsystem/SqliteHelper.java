@@ -15,7 +15,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "microHousingSystem";//DATABASE NAME
-    public static final int DATABASE_VERSION = 26;//DATABASE VERSION
+    public static final int DATABASE_VERSION = 29;//DATABASE VERSION
 
 
     public static final String TABLE_APPLICANT = "applicant"; //TABLE NAME
@@ -53,6 +53,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_TABLE_APPLICANT);
         sqLiteDatabase.execSQL(SQL_TABLE_HO);
         sqLiteDatabase.execSQL(SQL_TABLE_RESIDENCE);
+        sqLiteDatabase.execSQL(SQL_TABLE_APPLICATION);
 
 
     }
@@ -63,6 +64,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS " + TABLE_APPLICANT);
         sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS " + TABLE_HO);
         sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS " + TABLE_RESIDENCE);
+        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS " + TABLE_APPLICATION);
 
         onCreate(sqLiteDatabase);
 
@@ -394,7 +396,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
                 item.setApplicationDate(cursor.getString(cursor.getColumnIndex(KEY_APP_DATE)));
                 item.setRequiredMonth(cursor.getString(cursor.getColumnIndex(KEY_REQ_MONTH)));
                 item.setRequiredYear(cursor.getString(cursor.getColumnIndex(KEY_REQ_YEAR)));
-                item.setRequiredYear(cursor.getString(cursor.getColumnIndex(KEY_STATUS)));
+                item.setStatus(cursor.getString(cursor.getColumnIndex(KEY_STATUS)));
             }
             return item;
         } catch (Exception e) {
