@@ -11,45 +11,51 @@ import android.widget.Toast;
 
 public class SubmitApplication extends AppCompatActivity {
 
+
+    Button submit;
+    EditText date;
+    EditText month;
+    EditText year;
     SqliteHelper sqliteHelper;
-    private Button btnSubmit;
-    private EditText enter_date;
-    private EditText enter_month;
-    private EditText enter_year;
 
-    Application application;
+    public void submitApp(View view) {
 
-    public void submitApp(View view){
+        String dateE = date.getText().toString().trim();
+        String monthE = month.getText().toString().trim();
+        String yearE = year.getText().toString().trim();
 
-        sqliteHelper = new SqliteHelper(SubmitApplication.this);
-        enter_date = findViewById(R.id.enter_date);
-        enter_month = findViewById(R.id.enter_month);
-        enter_year = findViewById(R.id.enter_year);
+        Application newAp = new Application(null, dateE, monthE, yearE, "pending");
+        newAp.setApplicationDate(date.getText().toString().trim());
+        newAp.setRequiredMonth(month.getText().toString().trim());
+        newAp.setRequiredYear(year.getText().toString().trim());
 
-        Intent intent = getIntent();
-        int id = intent.getIntExtra("id", -1);
-        if (id != -1) {
-            application = sqliteHelper.getApplication(id);
-
-            enter_date.setText(application.getApplicationDate());
-            enter_month.setText(application.getRequiredMonth());
-            enter_year.setText(application.getRequiredYear());
-
-        }
+        sqliteHelper.addApplication(newAp);
+        Toast.makeText(this, "Your application has been submitted", Toast.LENGTH_SHORT).show();
+        finish();
 
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_application);
 
-        btnSubmit = findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        submit = findViewById(R.id.btnSubmit);
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openViewApp();
             }
         });
+
+        sqliteHelper = new SqliteHelper(SubmitApplication.this);
+        date = findViewById(R.id.enter_date);
+        month = findViewById(R.id.enter_month);
+        year = findViewById(R.id.enter_year);
+
+
+
 
 
     }
@@ -57,6 +63,5 @@ public class SubmitApplication extends AppCompatActivity {
     public void openViewApp() {
         Intent i = new Intent(this, ViewApplication.class);
         startActivity(i);
-
     }
 }
