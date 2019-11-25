@@ -38,7 +38,9 @@ public class SignUpAP extends AppCompatActivity {
         newAp.setEmail(emailET.getText().toString().trim());
         newAp.setMonthlyIncome(monthlyInconmeET.getText().toString().trim());
         newAp.getUserType();
+
         validate();
+
 
         if(!validate()) {
             Toast.makeText(this,"Signup has Failed",Toast.LENGTH_SHORT).show();
@@ -51,9 +53,6 @@ public class SignUpAP extends AppCompatActivity {
         }
 
 
-
-
-
     }
 
     //validation
@@ -63,7 +62,7 @@ public class SignUpAP extends AppCompatActivity {
             usernameET.setError("Please enter less than 10 characters ");
             valid = false;
         }
-        if(passwordET.length()<4){
+        if(passwordET.length()<2){
             passwordET.setError("Please enter valid password");
             valid = false;
         }
@@ -71,13 +70,12 @@ public class SignUpAP extends AppCompatActivity {
             fullnameET.setError("Please enter less than 20 characters");
             valid = false;
         }
-        if(emailET.length()<1 || !Patterns.EMAIL_ADDRESS.matcher((CharSequence) emailET).matches()){
+        if(emailET.length()<1 || emailET.length() > 20 ){
             emailET.setError("Please enter valid email address");
             valid = false;
         }
-
-        if (monthlyInconmeET.length()<1 ) {
-            monthlyInconmeET.setError("Please enter a valid monthly income ");
+        if(monthlyInconmeET.length()<1 || monthlyInconmeET.length() > 15 ){
+            monthlyInconmeET.setError("Please enter valid email address");
             valid = false;
         }
 

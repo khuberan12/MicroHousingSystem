@@ -51,7 +51,7 @@ public class SignUpHO extends AppCompatActivity {
             usernameET.setError("Please enter less than 10 characters ");
             valid = false;
         }
-        if(passwordET.length()<4){
+        if(passwordET.length()<2){
             passwordET.setError("Please enter valid password");
             valid = false;
         }
