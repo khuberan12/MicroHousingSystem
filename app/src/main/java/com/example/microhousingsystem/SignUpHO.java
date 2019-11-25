@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,12 +30,37 @@ public class SignUpHO extends AppCompatActivity {
         newHO.setUsername(usernameET.getText().toString().trim());
         newHO.setPassword(passwordET.getText().toString().trim());
         newHO.setFullname(fullnameET.getText().toString().trim());
+        validate();
 
-        sqliteHelper.addHO(newHO);
+        if(!validate()) {
+            Toast.makeText(this,"Signup has Failed",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            sqliteHelper.addHO(newHO);
+            Toast.makeText(this, "You have been registered as Housing Officer", Toast.LENGTH_SHORT).show();
+            finish();
 
-        Toast.makeText(this, "You have been registered as Housing Officer", Toast.LENGTH_SHORT).show();
-        finish();
+        }
 
+
+    }
+
+    public boolean validate() {
+        boolean valid = true;
+        if (usernameET.length() < 1 || usernameET.length() > 10) {
+            usernameET.setError("Please enter less than 10 characters ");
+            valid = false;
+        }
+        if(passwordET.length()<4){
+            passwordET.setError("Please enter valid password");
+            valid = false;
+        }
+        if (fullnameET.length() < 1 || fullnameET.length() > 20) {
+            fullnameET.setError("Please enter less than 20 characters");
+            valid = false;
+        }
+
+        return valid;
     }
 
     @Override
