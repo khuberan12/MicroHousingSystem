@@ -27,6 +27,7 @@ public class ResidenceList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private List<Residence> itemList;
+    private SqliteHelper sqliteHelper;
     private FloatingActionButton fab;
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
@@ -35,10 +36,6 @@ public class ResidenceList extends AppCompatActivity {
     private EditText residenceAvailable;
     private EditText residenceSize;
     private EditText residenceRental;
-    private RelativeLayout RelativeLayout;
-
-    private SqliteHelper sqliteHelper;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +44,6 @@ public class ResidenceList extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
         fab = findViewById(R.id.fab);
-        RelativeLayout = findViewById(R.id.RelativeLayout);
-
 
         sqliteHelper = new SqliteHelper(this);
         recyclerView.setHasFixedSize(true);

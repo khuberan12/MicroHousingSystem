@@ -16,7 +16,7 @@ public class Residence {
         this.monthlyRental = monthlyRental;
     }
 
-    public Residence() {
+    public  Residence() {
     }
 
     public String getResidenceID() {

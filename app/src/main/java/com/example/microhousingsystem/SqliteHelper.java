@@ -233,6 +233,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         }
     }
 
+
     public List<Residence> getAllResidence() {
 
         try {
@@ -269,6 +270,47 @@ public class SqliteHelper extends SQLiteOpenHelper {
             return null;
         }
     }
+    //khupii
+
+    public int updateItem(Residence item) {
+
+        try {
+            SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+            values.put(KEY_ID_R, item.getResidenceID());
+            values.put(KEY_RESIDENCE_ADDRESS, item.getAddress());
+            values.put(KEY_NUM_OF_UNITS, item.getNumOfUnits());
+            values.put(KEY_SIZE_PER_UNIT, item.getSizePerUnit());
+            values.put(KEY_MONTHLY_RENTAL, item.getMonthlyRental());
+
+
+            int result = sqLiteDatabase.update(TABLE_RESIDENCE, values,
+                    KEY_ID_R + "=?",
+                    new String[]{String.valueOf(item.getResidenceID())});
+            sqLiteDatabase.close();
+            return result;
+        } catch (Exception e) {
+            Log.d("updateResidence: ", e.getMessage());
+            return -1;
+        }
+    }
+
+    public void deleteItem(int id) {
+
+        try {
+            SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+            sqLiteDatabase.delete(TABLE_RESIDENCE,
+                    KEY_ID_R + "=?",
+                    new String[]{String.valueOf(id)});
+            sqLiteDatabase.close();
+        } catch (Exception e) {
+            Log.d("deleteResidence: ", e.getMessage());
+        }
+    }
+
+    //end
+
 
     public int getResidenceCount() {
 
@@ -281,7 +323,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
             return result;
         } catch (Exception e) {
-            Log.d("getItemCount: ", e.getMessage());
+            Log.d("getResidenceCount: ", e.getMessage());
             return -1;
         }
     }
@@ -398,6 +440,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         }
     }
 
+
     public int getApplicationCount() {
 
         try {
@@ -414,8 +457,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
         }
     }
 
-
     ///////////////////////////////////////////////////////////////////////////////////////////////
-
 
 }

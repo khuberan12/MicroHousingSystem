@@ -22,7 +22,6 @@ public class ResidenceActivity extends AppCompatActivity {
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
     private Button saveButton;
-    private EditText residenceID;
     private EditText address;
     private EditText numOfUnit;
     private EditText sizeOfUnit;

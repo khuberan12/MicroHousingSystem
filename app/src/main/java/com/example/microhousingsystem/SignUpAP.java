@@ -22,7 +22,7 @@ public class SignUpAP extends AppCompatActivity {
 
     SqliteHelper sqliteHelper;
 
-    public void signUp(View view){
+    public void signUp(View view) {
         String username = usernameET.getText().toString().trim();
         String password = passwordET.getText().toString().trim();
         String fullname = fullnameET.getText().toString().trim();
@@ -30,7 +30,7 @@ public class SignUpAP extends AppCompatActivity {
         String monthlyIncome = monthlyInconmeET.toString().trim();
 
 
-        Applicant newAp = new Applicant(null,username,password,fullname,email,monthlyIncome);
+        Applicant newAp = new Applicant(null, username, password, fullname, email, monthlyIncome);
         newAp.setUsername(usernameET.getText().toString().trim());
         newAp.setPassword(passwordET.getText().toString().trim());
         newAp.setFullname(fullnameET.getText().toString().trim());
@@ -59,12 +59,11 @@ public class SignUpAP extends AppCompatActivity {
             }
         });
 
-
-        usernameET =findViewById(R.id.usernameEditText);
-        passwordET =findViewById(R.id.passwordEditText);
-        fullnameET =findViewById(R.id.txtFullnameAP);
+        usernameET = findViewById(R.id.usernameEditText);
+        passwordET = findViewById(R.id.passwordEditText);
+        fullnameET = findViewById(R.id.txtFullnameAP);
         emailET = findViewById(R.id.txtEmail);
-        monthlyInconmeET =findViewById(R.id.txtSalary);
+        monthlyInconmeET = findViewById(R.id.txtSalary);
 
 
         sqliteHelper = new SqliteHelper(this);

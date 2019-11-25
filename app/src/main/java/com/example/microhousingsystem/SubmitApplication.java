@@ -19,7 +19,7 @@ public class SubmitApplication extends AppCompatActivity {
 
     Application application;
 
-    public void submitApp(View view){
+    public void submitApp(View view) {
 
         sqliteHelper = new SqliteHelper(SubmitApplication.this);
         enter_date = findViewById(R.id.enter_date);
@@ -38,6 +38,7 @@ public class SubmitApplication extends AppCompatActivity {
         }
 
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +48,15 @@ public class SubmitApplication extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openViewApp();
+                openResList();
             }
         });
 
 
     }
 
-    public void openViewApp() {
-        Intent i = new Intent(this, ViewApplication.class);
+    public void openResList() {
+        Intent i = new Intent(this, ResidenceList.class);
         startActivity(i);
 
     }

@@ -1,11 +1,16 @@
 package com.example.microhousingsystem;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +21,9 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private Context context;
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
+    private LayoutInflater inflater;
     private List<Residence> itemList;
 
     public RecyclerViewAdapter(Context context, List<Residence> itemList) {
@@ -56,7 +64,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public TextView residenceAvailability;
         public TextView residenceSize;
         public TextView residenceRental;
-        public int id;
+
+        public Button editButton;
+        public Button deleteButton;
+
+        public int residence_ID;
 
         public ViewHolder(@NonNull View itemView, Context ctx) {
             super(itemView);
@@ -67,6 +79,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             residenceAvailability = itemView.findViewById(R.id.residence_available);
             residenceSize = itemView.findViewById(R.id.residence_size);
             residenceRental = itemView.findViewById(R.id.residence_rental);
+
+            editButton = itemView.findViewById(R.id.editButton);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
+
+            editButton.setOnClickListener(this);
+            deleteButton.setOnClickListener(this);
         }
 
         @Override
@@ -75,8 +93,119 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             int position;
             position = getAdapterPosition();
             Residence item = itemList.get(position);
+
+            switch (v.getId()) {
+                case R.id.editButton:
+                    //edit item
+                    editItem(item);
+                    break;
+                case R.id.deleteButton:
+                    //delete item
+                    deleteItem(item.());
+                    break;
+            }
+
         }
 
+        public void deleteItem(final int residenceID) {
 
+            builder = new AlertDialog.Builder(context);
+
+            inflater = LayoutInflater.from(context);
+
+            View view = inflater.inflate(R.layout.confirmation_pop, null);
+
+            Button noButton = view.findViewById(R.id.conf_no_btn);
+            Button yesButton = view.findViewById(R.id.conf_yes_btn);
+
+            builder.setView(view);
+            dialog = builder.create();
+            dialog.show();
+
+            yesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SqliteHelper sqliteHelper = new SqliteHelper(context);
+                    sqliteHelper.deleteItem(residenceID);
+                    itemList.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+
+                    dialog.dismiss();
+                }
+            });
+
+            noButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+        }
+
+        private void editItem(final Residence newItem) {
+
+            builder = new AlertDialog.Builder(context);
+            inflater = LayoutInflater.from(context);
+            final View view = inflater.inflate(R.layout.popup, null);
+
+            Button saveButton;
+            final EditText residenceID;
+            final EditText residenceAddress;
+            final EditText residenceAvailability;
+            final EditText residenceSize;
+            final EditText residenceRental;
+
+            residenceID = view.findViewById(R.id.residence_ID);
+            residenceAddress = view.findViewById(R.id.residenceAddress);
+            residenceAvailability = view.findViewById(R.id.residenceAvailable);
+            residenceSize = view.findViewById(R.id.residence_size);
+            residenceRental = view.findViewById(R.id.residence_rental);
+            saveButton = view.findViewById(R.id.saveButton);
+            saveButton.setText(R.string.update_text);
+
+            residenceID.setText(newItem.getResidenceID());
+            residenceAddress.setText(String.valueOf(newItem.getAddress()));
+            residenceAvailability.setText(String.valueOf(newItem.getNumOfUnits()));
+            residenceSize.setText(String.valueOf(newItem.getSizePerUnit()));
+            residenceRental.setText(String.valueOf(newItem.getMonthlyRental()));
+
+
+            builder.setView(view);
+            dialog = builder.create();
+            dialog.show();
+
+            saveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //update our item
+                    SqliteHelper sqliteHelper = new SqliteHelper(context);
+
+                    //update items
+                    newItem.setAddress(residenceAddress.getText().toString());
+                    newItem.setNumOfUnits(residenceAvailability.getText().toString());
+                    newItem.setSizePerUnit(residenceSize.getText().toString());
+                    newItem.setMonthlyRental(residenceRental.getText().toString());
+
+
+                    if (!residenceAddress.getText().toString().isEmpty()
+                            && !residenceAvailability.getText().toString().isEmpty()
+                            && !residenceSize.getText().toString().isEmpty()
+                            && !residenceRental.getText().toString().isEmpty()) {
+
+                        sqliteHelper.updateItem(newItem);
+                        notifyItemChanged(getAdapterPosition(), newItem); //important!
+
+
+                    } else {
+                        Snackbar.make(view, "Fields Empty",
+                                Snackbar.LENGTH_SHORT)
+                                .show();
+                    }
+
+                    dialog.dismiss();
+
+                }
+            });
+        }
     }
 }

@@ -25,8 +25,6 @@ public class SignUpHO extends AppCompatActivity {
         String password = passwordET.getText().toString().trim();
         String fullname = fullnameET.getText().toString().trim();
 
-
-
         HousingOfficer newHO =  new HousingOfficer(null,username,password,fullname);
         newHO.setUsername(usernameET.getText().toString().trim());
         newHO.setPassword(passwordET.getText().toString().trim());
