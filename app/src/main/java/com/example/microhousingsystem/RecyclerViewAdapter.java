@@ -80,7 +80,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             residenceSize = itemView.findViewById(R.id.residence_size);
             residenceRental = itemView.findViewById(R.id.residence_rental);
 
-            editButton = itemView.findViewById(R.id.editButton);
+            editButton = itemView.findViewById(R.id.editButton1);
             deleteButton = itemView.findViewById(R.id.deleteButton);
 
             editButton.setOnClickListener(this);
@@ -95,13 +95,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Residence item = itemList.get(position);
 
             switch (v.getId()) {
-                case R.id.editButton:
+                case R.id.editButton1:
                     //edit item
                     editItem(item);
                     break;
                 case R.id.deleteButton:
                     //delete item
-                   deleteItem(item.getResidenceID());
+                    deleteItem(item.getResidenceID());
                     break;
             }
 
@@ -149,26 +149,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             final View view = inflater.inflate(R.layout.popup, null);
 
             Button saveButton;
-            final EditText residenceID;
             final EditText residenceAddress;
             final EditText residenceAvailability;
             final EditText residenceSize;
             final EditText residenceRental;
 
-
             residenceAddress = view.findViewById(R.id.residenceAddress);
             residenceAvailability = view.findViewById(R.id.residenceAvailable);
             residenceSize = view.findViewById(R.id.residence_size);
             residenceRental = view.findViewById(R.id.residence_rental);
+
             saveButton = view.findViewById(R.id.saveButton);
-            saveButton.setText(R.string.update_text);
+            saveButton.setText("Update");
 
-
-            residenceAddress.setText(String.valueOf(newItem.getAddress()));
-            residenceAvailability.setText(String.valueOf(newItem.getNumOfUnits()));
-            residenceSize.setText(String.valueOf(newItem.getSizePerUnit()));
-            residenceRental.setText(String.valueOf(newItem.getMonthlyRental()));
-
+            residenceAddress.setText(newItem.getAddress());
+            residenceAvailability.setText(newItem.getNumOfUnits());
+            residenceSize.setText(newItem.getSizePerUnit());
+            residenceRental.setText(newItem.getMonthlyRental());
 
             builder.setView(view);
             dialog = builder.create();
@@ -203,7 +200,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     }
 
                     dialog.dismiss();
-
                 }
             });
         }
